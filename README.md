@@ -70,6 +70,6 @@ Licenced under:
 
 - [Camela Rey](https://github.com/cdrcar)
 
-- [GitHub](https://github.com/Ze7Hu)
+- [Hodan Ibrahim](https://github.com/Ze7Hu)
 
 
