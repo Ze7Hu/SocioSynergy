@@ -66,9 +66,9 @@ Licenced under:
 
 ## [Authors](#table-of-contents)
 
-- [GitHub](https://github.com/Abstynent)
+- [Lukasz Jurkiewicz](https://github.com/Abstynent)
 
-- [GitHub](https://github.com/cdrcar)
+- [Camela Rey](https://github.com/cdrcar)
 
 - [GitHub](https://github.com/Ze7Hu)
 
