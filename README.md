@@ -20,7 +20,7 @@ Whether you're looking to stay up-to-date on the latest news and trends, engage 
 
 Designed for individuals to connect and share their thoughts, ideas, and experiences with the world. Our user story is to provide a simple and easy-to-use platform that allows people to express themselves and connect with others on a global scale.
 
-Our motivation for developing SocioSynergy was to create a platform that enables people to communicate and share information in real-time. We recognized that there was a need for a social media platform that was fast, accessible, and allowed users to quickly and easily connect with others who share their interests. Twitter was designed to be a place where users can share their opinions, thoughts, and ideas in a concise and impactful way.
+Our motivation for developing SocioSynergy was to create a platform that enables people to communicate and share information in real-time. We recognized that there was a need for a social media platform that was fast, accessible, and allowed users to quickly and easily connect with others who share their interests. SocioSynergy was designed to be a place where users can share their opinions, thoughts, and ideas in a concise and impactful way.
 
 
 `Technologies used:`
