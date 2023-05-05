@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocioSynergy</title>
+
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
+        crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Nav bar -->
+    <div class="nav flex-column">
+        <ul class="nav justify-content-center">
+            <!-- <div class="nav-item">
+                <a class="nav-link active d-block d-sm-none" href="#">Profile</a>
+            </div> -->
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            
+            <!-- Left side user section -->
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
+                    <h5>Connect to SocioSynergy!</h5>
+                    <button type="button"  class="btn button_slide slide_right" data-toggle="login" data-target="#login-modal">Login</button>
+                    <button type="button"  class="btn button_slide slide_right" data-toggle="signup" data-target="#signup-modal">Sign-Up</button>
+                    
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="post/{{post.id}}">
+                        <h2 class="post-title">Random title</h2>
+                        <h3 class="post-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt id velit eget auctor. Curabitur eget gravida nunc. Quisque dapibus, sapien nec congue ullamcorper, velit enim efficitur augue, et tempor purus erat sed purus.</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by <a href="#!">Abstynent</a> on 04/05/2023 @ 23:19
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="post/{{post.id}}">
+                        <h2 class="post-title">Another post</h2>
+                        <h3 class="post-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt id velit eget auctor. Curabitur eget gravida nunc. Quisque dapibus, sapien nec congue ullamcorper, velit enim efficitur augue, et tempor purus erat sed purus.</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by <a href="#!">User</a> on 04/05/2023 @ 23:19
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
