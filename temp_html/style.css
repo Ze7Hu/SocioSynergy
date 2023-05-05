@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(./bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+    color: #212529;
+    text-decoration: none;
+  }
+/* CODEPEN.IO BUTTON STYLE */
+.button_slide {
+  /* color: #FFF; */
+  border: 2px solid rgb(39, 167, 236);
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 rgb(39, 167, 236);
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide_right:hover {
+  box-shadow: inset 400px 0 0 0 rgb(39, 167, 236);
+}
+/* END */
+.custom-block {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile-picture {
+    width: 100px;
+    height: 110px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-list {
+    /* float: right; */
+    font-size: 16px;
+    list-style-type: none;
+    margin-left: 25px;
+}
+
+.post-preview > a {
+    color: #212529;
+  }
+  .post-preview > a:focus, .post-preview > a:hover {
+    text-decoration: none;
+    color: #0085A1;
+  }
+  .post-preview > a > .post-title {
+    font-size: 1.875rem;
+    margin-top: 1.875rem;
+    margin-bottom: 0.625rem;
+  }
+  .post-preview > a > .post-subtitle {
+    font-weight: 300;
+    margin-bottom: 0.625rem;
+  }
+  .post-preview > .post-meta {
+    font-size: 1.125rem;
+    font-style: italic;
+    margin-top: 0;
+    color: #6c757d;
+  }
+  .post-preview > .post-meta > a {
+    text-decoration: none;
+  }
+  
+@media (min-width: 992px) {
+   .post-preview > a > .post-title {
+        font-size: 2.25rem;
+   }
+}
+
+@media only screen and (max-width: 992px) {
+    .profile-list {
+        margin-left: -25px;
+        float:none;
+   }
+}
+@media only screen and (max-width: 768px) {
+   .profile-list {
+       float: none;
+       /* font-size: 12px; */
+       margin-left: 0px;
+   }
+ }
