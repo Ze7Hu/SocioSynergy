@@ -23,12 +23,12 @@ User.init(
     },
 
     first_name: {
-      types: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
 
     last_name: {
-      types: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     password: {
