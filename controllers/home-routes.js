@@ -1,3 +1,4 @@
+// TODO: Create the following Handlebars templates: single-post, posts-comments
 // Import Modules
 const sequelize = require ('../config/connection');
 const { Post, User, Comment } = require ('../models');
