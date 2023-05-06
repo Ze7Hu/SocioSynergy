@@ -12,6 +12,29 @@ a {
     color: #212529;
     text-decoration: none;
   }
+
+
+.custom-block {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile-picture {
+    width: 100px;
+    height: 110px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-list {
+    /* float: right; */
+    font-size: 16px;
+    list-style-type: none;
+    margin-left: 25px;
+}
+
+.signup-link:hover {
+    color: rgb(189, 189, 189);
+}
 /* CODEPEN.IO BUTTON STYLE */
 .button_slide {
   /* color: #FFF; */
@@ -31,24 +54,6 @@ a {
 
 .slide_right:hover {
   box-shadow: inset 400px 0 0 0 rgb(39, 167, 236);
-}
-/* END */
-.custom-block {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.profile-picture {
-    width: 100px;
-    height: 110px;
-    border-radius: 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.profile-list {
-    /* float: right; */
-    font-size: 16px;
-    list-style-type: none;
-    margin-left: 25px;
 }
 
 /* post preview style from bootstrap studio */
