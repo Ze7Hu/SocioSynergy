@@ -26,6 +26,7 @@ Our motivation for developing SocioSynergy was to create a platform that enables
 `Technologies used:`
 
 - JavaScript
+- Handlebars
 - HTML
 - CSS
 - Boostrap
