@@ -76,7 +76,7 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(404).json ({ message: 'A comment with this ID could not be found' });
             return;
         }
-        res.json(commentData);
+        res.json({ message: 'Comment successfully deleted' });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
