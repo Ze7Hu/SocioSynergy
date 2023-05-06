@@ -144,7 +144,7 @@ router.get('/posts-comments', (req, res => {
         }
         const post = data.get({ plain: true});
 
-        res.render('posts-comments', { post, loddedIn: req.session.loddedIn});
+        res.render('posts-comments', { post, loggedIn: req.session.loggedIn});
     })
     .catch(err => {
         console.log(err);
