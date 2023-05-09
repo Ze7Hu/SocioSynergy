@@ -42,7 +42,7 @@ User.init(
     },
 
     gender: {
-      type: DataTypes.STRING(1),
+      type: DataTypes.STRING(6),
       allowNull: true
     },
     
