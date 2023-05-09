@@ -107,7 +107,7 @@ router.get('/post/:id', (req, res) => {
 
 
 // GET endpoint to retrieve from database a specific post as well as the post's comments and user information
-router.get('/posts-comments', (req, res => {
+router.get('/posts-comments', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -150,6 +150,6 @@ router.get('/posts-comments', (req, res => {
         console.log(err);
         res.status(500).json(err);
     });
-}));
+});
 
 module.exports = router;
