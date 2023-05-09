@@ -14,6 +14,21 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', async (req, res) => {
+    try {
+        const userData = await User.create(req.body);
+        console.log("user data " + userData);
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        });
+    } catch (error) {
+        res.status(400).json(error);
+    }
+})
 
 // GET route to retrieve a specific user for a given id including the user's posts, comments
 router.get('/:id', (req, res) => {
@@ -62,25 +77,25 @@ router.get('/:id', (req, res) => {
 
 
 // POST route to create a new user with the given username and password
-router.post('/', (req, res) => {
-    User.create({
-        username: req.body.username,
-        password: req.body.password
-    })
-    .then(userData => {
-        req.session.save(() => { // Save the user's session data in the server-side session store
-            req.session.user_id = userData.id;
-            req.session.username = userData.username;
-            req.session.loggedIn = true;
+// router.post('/', (req, res) => {
+//     User.create({
+//         username: req.body.username,
+//         password: req.body.password
+//     })
+//     .then(userData => {
+//         req.session.save(() => { // Save the user's session data in the server-side session store
+//             req.session.user_id = userData.id;
+//             req.session.username = userData.username;
+//             req.session.loggedIn = true;
 
-            res.json(userData);
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+//             res.json(userData);
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 
 // POST route to log in a user with a given username and password. It sets a session for the logged in user
