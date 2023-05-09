@@ -47,11 +47,37 @@ Our motivation for developing SocioSynergy was to create a platform that enables
 
 ## [Installation](#table-of-contents)
 
+Install the following packages and dependencies:
+
+> Node.js
+
+> MySQL
+
+> Insomia or any other API development enviroment
+
+Once you have Node.js and MySQL installed, you'll need to install the required dependencies for this app: Express.js sequelize, MySQL2
+
+> package.json: npm i
 
 
 ## [Usage](#table-of-contents)
 
+Add your MySQL username, password, and database name as environment variables. 
 
+> DB_NAME='techblog'  
+> DB_USER='your_username'  
+> DB_PW='your_password'
+
+Open MySQL shell and insert the commands: 
+
+> source db/schema.sql
+> use techblog
+
+Exit MySQL shell and 
+Start the app by running the following command in your terminal: 
+
+> npm run seed
+> node server.js
 
 ## [License](#table-of-contents)
 
@@ -63,13 +89,14 @@ Licenced under:
 
 ## [Tests](#table-of-contents)
 
+To test this app, clone the repository, open the file in your source-code editor, complete the installation and usage running the code `node server.js`. This will start the server and sync the Sequelize models to the MySQL database. You can then use your API development environment (for example Insomnia) to test the API routes using different HTTP request methods like get, post, put and delete.
 
 
 ## [Authors](#table-of-contents)
 
 - [Lukasz Jurkiewicz](https://github.com/Abstynent)
 
-- [Camela Rey](https://github.com/cdrcar)
+- [Carmela Rey](https://github.com/cdrcar)
 
 - [Hodan Ibrahim](https://github.com/Ze7Hu)
 
