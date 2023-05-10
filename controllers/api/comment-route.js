@@ -26,11 +26,11 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// POST route to create a new comment with the given comment_text requiring authentication with withAuth middleware
+// POST route to create a new comment with the given text requiring authentication with withAuth middleware
 router.post('/', withAuth, (req, res) => {
     if(req.session.loggedIn) { // Check if session exists, if so create method is used 
         Comment.create({
-            comment_text: req.body.comment_text,
+            text: req.body.text,
             post_id: req.body.post_id,
             user_id: req.session.user_id,
         })
@@ -45,7 +45,7 @@ router.post('/', withAuth, (req, res) => {
 // PUT route to update an existing comment with the given id requiring authentication 
 router.put('/:id', withAuth, (req, res) => {
     Comment.update({
-        comment_text: req.body.comment_text
+        text: req.body.text
     },
     {
         where: {

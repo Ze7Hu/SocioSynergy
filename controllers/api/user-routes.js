@@ -14,21 +14,31 @@ router.get('/', (req, res) => {
     });
 });
 
+// POST route to create new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
-        console.log("user data " + userData);
-
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-
-            res.status(200).json(userData);
-        });
+      const { username, first_name, last_name, email, gender, password } = req.body;
+  
+      const userData = await User.create({
+        username,
+        first_name,
+        last_name,
+        email,
+        gender,
+        password
+      });
+  
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+  
+      res.status(200).json(userData);
     } catch (error) {
-        res.status(400).json(error);
+      console.log(error); // Log the error to the console for debugging purposes
+      res.status(500).json({ error: 'Failed to create user' });
     }
-})
+  });
+  
+  
 
 // GET route to retrieve a specific user for a given id including the user's posts, comments
 router.get('/:id', (req, res) => {
@@ -50,7 +60,7 @@ router.get('/:id', (req, res) => {
             model: Comment,
             attributes: [
                 'id',
-                'comment_text',
+                'text',
                 'created_at'
             ],
             include: {

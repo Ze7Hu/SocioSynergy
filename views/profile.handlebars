@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-4 col-lg-3">
+            <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
+                <h5>Profile Menu</h5>
+                <a href="/" role="button" class="btn button_slide slide_right">Home</a>
+                <br>
+                <a href="/create-post" role="button" class="btn button_slide slide_right">Create Post</a>
+                <br>
+                <a href="/logout" role="button" class="btn button_slide slide_right">Log Out</a>
+            </div>
+        </div>
+            <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
+            <h2>Username {{username}}</h2>
+            <div class="profile-info">
+                <img src="{{profilePicture}}" alt="Profile Picture" class="profile-picture">
+                <h4>Name {{first_name}} {{last_name}}</h4>
+                <h4>Email {{email}}</h4>
+                <h4>Gender {{gender}}</h4>
+            </div>
+            <hr class="my-4">
+            <h2>My Posts</h2>
+            {{#if posts}}
+                {{#each posts}}
+                    <div class="post-preview">
+                        <a href="post/{{this.id}}">
+                            <h2 class="post-title">{{this.title}}</h2>
+                            <h3 class="post-subtitle">{{this.content}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by <a href="#!">{{this.author}}</a> on {{this.date}}
+                        </p>
+                        <!-- Add comments functionality here -->
+                    </div>
+                    <hr class="my-4">
+                {{/each}}
+            {{else}}
+                <p>No posts found.</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="/javascript/add-post.js"></script>
