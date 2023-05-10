@@ -32,6 +32,11 @@ a {
     margin-left: 25px;
 }
 
+.logout-button:hover {
+  color: rgb(189, 189, 189);
+  cursor: pointer;
+}
+
 .signup-link:hover {
     color: rgb(189, 189, 189);
 }
