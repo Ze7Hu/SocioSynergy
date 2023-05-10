@@ -1,0 +1,30 @@
+{{#if loggedIn}}
+<div class="col-12 col-md-4 col-lg-3">
+    <div class="container custom-block border border-0 rounded">
+        <div class="row p-3 mb-2">
+            <div class="col-3">
+                <img src="/img/profile/1.jpg" class="profile-picture">
+            </div>
+            <div class="col-9">
+                <ul class="profile-list">
+                    <li><a href="#"><i class="fa-solid fa-user"></i> Abstynent</a></li>
+                    <li><i class="fa-sharp fa-solid fa-plus"></i> Add post</li>
+                    <li><i class="fa-solid fa-book"></i> Dashboard</li>
+                    <li><i class="fa-solid fa-star"></i> Followers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{else}}
+<div class="col-12 col-md-4 col-lg-3">
+    <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
+        <h5>Connect to SocioSynergy!</h5>
+        <a href="/login" role="button"  class="btn button_slide slide_right">Login</a>
+        <a href="/signup" role="button"  class="btn button_slide slide_right">Sign-Up</a>
+        
+    </div>
+</div>
+    <script src="js/logout.js"></script>
+{{/if}}
