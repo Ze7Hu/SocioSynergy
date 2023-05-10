@@ -7,16 +7,16 @@
             </div>
             <div class="col-9">
                 <ul class="profile-list">
-                    <li><a href="#"><i class="fa-solid fa-user"></i> Abstynent</a></li>
+                    <li><i class="fa-solid fa-user"></i> Abstynent</li>
                     <li><i class="fa-sharp fa-solid fa-plus"></i> Add post</li>
-                    <li><i class="fa-solid fa-book"></i> Dashboard</li>
                     <li><i class="fa-solid fa-star"></i> Followers</li>
+                    <li onclick=logout()><i class="fa-solid fa-door-open"></i> Logout</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
+    <script src="js/logout.js"></script>
 {{else}}
 <div class="col-12 col-md-4 col-lg-3">
     <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
@@ -26,5 +26,4 @@
         
     </div>
 </div>
-    <script src="js/logout.js"></script>
 {{/if}}
