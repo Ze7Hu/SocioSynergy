@@ -75,7 +75,7 @@ router.get('/post/:id', (req, res) => {
             model: Comment,
             attributes: [
                 'id', 
-                'comment_text', 
+                'text', 
                 'post_id', 
                 'user_id', 
                 'created_at'
@@ -122,7 +122,7 @@ router.get('/posts-comments', (req, res) => {
             model: Comment,
             attributes: [
                 'id',
-                'comment_text',
+                'text',
                 'post_id',
                 'user_id',
                 'created_at'
