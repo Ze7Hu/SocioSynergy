@@ -17,12 +17,9 @@ const signUpHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        console.log(response)
         if(response.ok) {
             document.location.replace('/profile');
-            console.log("ok")
         } else {
-            console.log("error on response.ok")
             alert(response.statusText);
         }
     }
