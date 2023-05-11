@@ -96,7 +96,7 @@ router.get('/:id', (req, res) => {
 //         req.session.save(() => { // Save the user's session data in the server-side session store
 //             req.session.user_id = userData.id;
 //             req.session.username = userData.username;
-//             req.session.loggedIn = true;
+//             req.session.logged_in = true;
 
 //             res.json(userData);
 //         });
@@ -129,7 +129,7 @@ router.post('/login', (req, res) => {
         req.session.save(() => { // Save the user's session data in the server-side session store
             req.session.user_id = userData.id;
             req.session.username = userData.username;
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
 
             res.json({ user: userData, message: 'You are now logged in'});
         });
@@ -143,7 +143,7 @@ router.post('/login', (req, res) => {
 
 // POST route to log out the currently logged in user by destroying their session
 router.post('/logout', (req, res) => {
-    if(req.session.loggedIn){
+    if(req.session.logged_in){
         req.session.destroy(() => {
             res.status(204).end();
         });

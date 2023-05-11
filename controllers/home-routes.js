@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         });
         const posts = postData.map((post) => post.get({ plain:true }));
         console.log(posts)
-        res.render('homepage', { posts })
+        res.render('homepage', { posts, logged_in: req.session.logged_in })
     } catch (error) {
         res.status(500).json(error);
     }
@@ -76,6 +76,10 @@ router.get('/login', (req, res) => {
 
 // GET route for signup endpoint
 router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
     res.render('signup');
 });
 
