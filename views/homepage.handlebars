@@ -6,30 +6,19 @@
 
             <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
                 <!-- Post preview-->
+                {{#each posts as |post|}}
                 <div class="post-preview">
                     <a href="post/{{post.id}}">
-                        <h2 class="post-title">Random title</h2>
-                        <h3 class="post-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt id velit eget auctor. Curabitur eget gravida nunc. Quisque dapibus, sapien nec congue ullamcorper, velit enim efficitur augue, et tempor purus erat sed purus.</h3>
+                        <h2 class="post-title">{{post.title}}</h2>
+                        <h3 class="post-subtitle">{{post.content}}</h3>
                     </a>
                     <p class="post-meta">
-                        Posted by <a href="#!">Abstynent</a> on 04/05/2023 @ 23:19
+                        Posted by <a href="#!">{{post.user/username}}</a> on {{post.date_created}}
                     </p>
                 </div>
                 <!-- Divider-->
                 <hr class="my-4" />
-
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="post/{{post.id}}">
-                        <h2 class="post-title">Another post</h2>
-                        <h3 class="post-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt id velit eget auctor. Curabitur eget gravida nunc. Quisque dapibus, sapien nec congue ullamcorper, velit enim efficitur augue, et tempor purus erat sed purus.</h3>
-                    </a>
-                    <p class="post-meta">
-                        Posted by <a href="#!">User</a> on 04/05/2023 @ 23:19
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
+                {{/each}}
             </div>
         </div>
     </div>
