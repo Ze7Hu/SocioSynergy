@@ -41,49 +41,49 @@ router.post('/', async (req, res) => {
   
 
 // GET route to retrieve a specific user for a given id including the user's posts, comments
-router.get('/:id', (req, res) => {
-    User.findOne({
-        attributes: { exclude: ['password']},
-        where: {
-            id: req.params.id
-        },
-        include: [{
-            model: Post,
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'created_at'
-            ]
-        },
-        {
-            model: Comment,
-            attributes: [
-                'id',
-                'text',
-                'created_at'
-            ],
-            include: {
-                model: Post,
-                attributes: ['title']
-            }
-        },
-        {
-            model: Post,
-            attributes: ['title'],
-        }]
-    })
-    .then(userData => {
-        if(!userData) {
-            res.status(404).json({ message: 'A user with this id could not be found'});
-            return;
-        }
-        res.json(userData);
-    })
-    .catch(err => {
-        console.log(err);
-    });
-});
+// router.get('/profile', (req, res) => {
+//     User.findOne({
+//         attributes: { exclude: ['password']},
+//         where: {
+//             id: req.params.id
+//         },
+//         include: [{
+//             model: Post,
+//             attributes: [
+//                 'id',
+//                 'title',
+//                 'content',
+//                 'created_at'
+//             ]
+//         },
+//         {
+//             model: Comment,
+//             attributes: [
+//                 'id',
+//                 'text',
+//                 'created_at'
+//             ],
+//             include: {
+//                 model: Post,
+//                 attributes: ['title']
+//             }
+//         },
+//         {
+//             model: Post,
+//             attributes: ['title'],
+//         }]
+//     })
+//     .then(userData => {
+//         if(!userData) {
+//             res.status(404).json({ message: 'A user with this id could not be found'});
+//             return;
+//         }
+//         res.json(userData);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
+// });
 
 
 // POST route to create a new user with the given username and password
