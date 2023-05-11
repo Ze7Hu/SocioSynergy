@@ -110,7 +110,6 @@ router.get('/:id', (req, res) => {
 
 // POST route to log in a user with a given username and password. It sets a session for the logged in user
 router.post('/login', (req, res) => {
-    console.log(req.body)
     User.findOne({
         where: {
             email: req.body.email
