@@ -21,7 +21,7 @@ router.get ('/', withAuth, (req, res) => { // withAuth to ensure user is logged 
             model: Comment,
             attributes: [
                 'id',
-                'comment_text',
+                'text',
                 'post_id',
                 'user_id',
                 'created_at'
@@ -66,7 +66,7 @@ router.get ('/edit/:id', withAuth, (req, res) => {
             model: Comment,
             attributes: [
                 'id',
-                'comment_text',
+                'text',
                 'post_id',
                 'user_id',
                 'created_at'

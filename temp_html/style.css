@@ -32,8 +32,8 @@ a {
     margin-left: 25px;
 }
 
-.profile-list li:hover {
-  color: white;
+.logout-button:hover {
+  color: rgb(189, 189, 189);
   cursor: pointer;
 }
 

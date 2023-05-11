@@ -5,42 +5,63 @@ const { Post, User, Comment } = require ('../models');
 const router = require ('express').Router();
 
 // GET request for homepage to retrive all posts from database
-router.get('/', (req, res) => {
-    Post.findAll({
-        attributes: [
-            'id',
-            'title',
-            'content',
-            'created_at'
-        ],
-        include: [{
-            model: Comment,
-            attributes: [
-                'id',
-                'text',
-                'post_id',
-                'user_id', 
-                'created_at'
+router.get('/', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                }
             ],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
-        },
-        {
-        model: User,
-        attributes: ['username']
-        }]
-    })
-    .then(data => {
-        const posts = data.map(post => post.get({ plain: true }))
-        res.render('homepage', { posts, loggedIn: req.session.loggedIn });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+            order: [
+                ['created_at', 'DESC']
+            ]
+        });
+        const posts = postData.map((post) => post.get({ plain:true }));
+        console.log(posts)
+        res.render('homepage', { posts })
+    } catch (error) {
+        res.status(500).json(error);
+    }
+})
+// router.get('/', (req, res) => {
+//     Post.findAll({
+//         attributes: [
+//             'id',
+//             'title',
+//             'content',
+//             'created_at'
+//         ],
+//         include: [{
+//             model: Comment,
+//             attributes: [
+//                 'id',
+//                 'text',
+//                 'post_id',
+//                 'user_id', 
+//                 'created_at'
+//             ],
+//             include: {
+//                 model: User,
+//                 attributes: ['username']
+//             }
+//         },
+//         {
+//         model: User,
+//         attributes: ['username']
+//         }]
+//     })
+//     .then(data => {
+//         const posts = data.map(post => post.get({ plain: true }))
+//         console.log(posts)
+//         res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 
 // GET route for login endpoint
@@ -75,7 +96,7 @@ router.get('/post/:id', (req, res) => {
             model: Comment,
             attributes: [
                 'id', 
-                'comment_text', 
+                'text', 
                 'post_id', 
                 'user_id', 
                 'created_at'
@@ -122,7 +143,7 @@ router.get('/posts-comments', (req, res) => {
             model: Comment,
             attributes: [
                 'id',
-                'comment_text',
+                'text',
                 'post_id',
                 'user_id',
                 'created_at'
