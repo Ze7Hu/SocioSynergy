@@ -13,7 +13,7 @@
                         <h3 class="post-subtitle">{{post.content}}</h3>
                     </a>
                     <p class="post-meta">
-                        Posted by <a href="#!">{{post.user/username}}</a> on {{post.date_created}}
+                        Posted by <a href="#!">{{post.user/username}}</a> on {{format_date post.date_created}} @ {{format_time post.date_created}}
                     </p>
                 </div>
                 <!-- Divider-->
