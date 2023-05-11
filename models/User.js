@@ -16,6 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -43,7 +44,7 @@ User.init(
 
     gender: {
       type: DataTypes.STRING(6),
-      allowNull: true
+      allowNull: false
     },
     
     password: {
@@ -53,8 +54,6 @@ User.init(
         len: [6],
       },
     },
-
-    
   },
   {
     hooks: {

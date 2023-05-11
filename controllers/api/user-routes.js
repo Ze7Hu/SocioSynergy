@@ -63,10 +63,7 @@ router.get('/:id', (req, res) => {
 
 // POST route to create a new user with the given username and password
 router.post('/', (req, res) => {
-    User.create({
-        username: req.body.username,
-        password: req.body.password
-    })
+    User.create(req.body)
     .then(userData => {
         req.session.save(() => { // Save the user's session data in the server-side session store
             req.session.user_id = userData.id;
