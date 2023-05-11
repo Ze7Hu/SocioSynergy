@@ -16,6 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -53,8 +54,6 @@ User.init(
         len: [6],
       },
     },
-
-    
   },
   {
     hooks: {
