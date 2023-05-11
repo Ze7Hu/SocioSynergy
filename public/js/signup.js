@@ -1,3 +1,4 @@
+// Signup submition
 const signUpHandler = async (event) => {
     event.preventDefault();
 
@@ -18,7 +19,7 @@ const signUpHandler = async (event) => {
 
         console.log(response)
         if(response.ok) {
-            document.location.replace('/');
+            document.location.replace('/profile');
             console.log("ok")
         } else {
             console.log("error on response.ok")
