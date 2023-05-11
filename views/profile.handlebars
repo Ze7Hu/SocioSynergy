@@ -7,29 +7,29 @@
                 <br>
                 <a href="/create-post" role="button" class="btn button_slide slide_right">Create Post</a>
                 <br>
-                <a href="/logout" role="button" class="btn button_slide slide_right">Log Out</a>
+                <a onclick=logout() role="button" class="btn button_slide slide_right">Log Out</a>
             </div>
         </div>
             <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
-            <h2>Username {{username}}</h2>
+            <h2> {{user.username}}</h2>
             <div class="profile-info">
                 <img src="{{profilePicture}}" alt="Profile Picture" class="profile-picture">
-                <h4>Name {{first_name}} {{last_name}}</h4>
-                <h4>Email {{email}}</h4>
-                <h4>Gender {{gender}}</h4>
+                <h4> {{user.first_name}} {{user.last_name}}</h4>
+                <h4> {{user.email}}</h4>
+                <h4> {{user.gender}}</h4>
             </div>
             <hr class="my-4">
             <h2>My Posts</h2>
-            {{#if posts}}
-                {{#each posts}}
+            {{#if user.posts}}
+                {{#each user.posts as |post|}}
                     <div class="post-preview">
-                        <a href="post/{{this.id}}">
-                            <h2 class="post-title">{{this.title}}</h2>
-                            <h3 class="post-subtitle">{{this.content}}</h3>
+                        <a href="post/{{post.id}}">
+                            <h2 class="post-title">{{post/title}}</h2>
+                            <h3 class="post-subtitle">{{post.content}}</h3>
                         </a>
-                        <p class="post-meta">
-                            Posted by <a href="#!">{{this.author}}</a> on {{this.date}}
-                        </p>
+                        {{!-- <p class="post-meta">
+                            Posted by <a href="#!">Carmela</a> on {{format_date post.date}}
+                        </p> --}}
                         <!-- Add comments functionality here -->
                     </div>
                     <hr class="my-4">
@@ -41,4 +41,4 @@
     </div>
 </div>
 
-<script src="/javascript/add-post.js"></script>
+<script src="/js/logout.js"></script>
