@@ -3,6 +3,7 @@
 const sequelize = require ('../config/connection');
 const { Post, User, Comment } = require ('../models');
 const router = require ('express').Router();
+const withAuth = require ('../utils/auth');
 
 // GET request for homepage to retrive all posts from database
 router.get('/', async (req, res) => {
@@ -62,6 +63,52 @@ router.get('/', async (req, res) => {
 //         res.status(500).json(err);
 //     });
 // });
+
+router.get('/profile', withAuth, (req, res) => {
+    User.findOne({
+        attributes: { exclude: ['password']},
+        where: {
+            id: req.session.user_id
+        },
+        include: [{
+            model: Post,
+            attributes: [
+                'id',
+                'title',
+                'content',
+                'created_at'
+            ]
+        },
+        {
+            model: Comment,
+            attributes: [
+                'id',
+                'text',
+                'created_at'
+            ],
+            include: {
+                model: Post,
+                attributes: ['title']
+            }
+        },
+        {
+            model: Post,
+            attributes: ['title'],
+        }]
+    })
+    .then(userData => {
+        if(!userData) {
+            res.status(404).json({ message: 'A user with this id could not be found'});
+            return;
+        }
+        const user = userData.get({ plain: true });
+        console.log(user);
+        res.render('profile', { user, logged_in: req.session.logged_in} );
+    })
+    .catch(err => {
+        console.log(err);
+    });
+});
 
 
 // GET route for login endpoint
