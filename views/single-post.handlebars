@@ -1,21 +1,19 @@
+
 <div class="card">
-  <div class="card-header flex-row justify-space-between">
-    <h2>
-      <a href="/post/{{post.id}}">
-        <div class="col-8">{{post.postTitle}}</div>
-      </a>
-    </h2>
-    <div class="col-3"> posted by {{post.user/username}} on {{format_date post.datereated}}
+    <div class="card-header flex-row justify-space-between">
+        <h2>
+            <a href="/post/{{post.id}}">
+                <div class="col-8">{{post.postTitle}}</div>
+            </a>
+        </h2>
+        <div class="col-3"> posted by {{post.user.username}} on {{format_date post.created_at}}</div>
     </div>
-  </div>  
-  <p class="card-body">
-  {{post.postContent}}
-  </p>
+    <p class="card-body">
+        {{post.postContent}}
+    </p>
 </div>
-<input type="hidden" name="post-id" value="{{post.id}}"/>
+<input type="hidden" name="post-id" value="{{post.id}}" />
 
 {{> comments}}
-</div>
 
-<script src="/js/comment.js"></script><div class="card">
-  
+<script src="/js/comment.js"></script>
