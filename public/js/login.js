@@ -15,8 +15,11 @@ const loginFormHandler = async (event) => {
         if(response.ok) {
             document.location.replace('/profile');
         } else {
-            alert(response.statusText);
+            // alert(response.statusText);
+            alert("Ivalid e-mail address or password.");
         }
+    } else {
+        alert("Enter e-mail and password.");
     }
 };
 

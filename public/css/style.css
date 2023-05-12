@@ -7,12 +7,18 @@ body {
     height: 100vh;
     font-family: 'Noto Sans', sans-serif;
 }
-
+.nav-item a,
 a {
     color: #212529;
     text-decoration: none;
   }
-
+a:link,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: black;
+}
 
 .custom-block {
     background-color: rgba(0, 0, 0, 0.05);
@@ -32,7 +38,9 @@ a {
     margin-left: 25px;
 }
 
-.profile-list li:hover {
+.nav-item a:hover,
+.profile-list li:hover,
+.profile-list li a:hover {
   color: white;
   cursor: pointer;
 }
