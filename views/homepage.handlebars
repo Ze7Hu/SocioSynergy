@@ -25,14 +25,12 @@
                                 <h3 class="post-subtitle">{{post.content}}</h3>
                             </a>
                         </div>
-                        <div class="post-actions">
-                            <button class="btn btn-primary">Like</button>
-                            <button class="btn btn-secondary">
-                             <a href="/signup" class="btn-link">Comment</a>
-                            </button>
-
+                       <div class="post-actions">
+                       <button class="btn btn-primary like-btn"><i class="fa-solid fa-heart"></i> Like</button>
+                        <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="/signup" class="btn-link">Comment</a></button>
+                        <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
                         </div>
-                    </div>
+                        </div>
                 </div>
                 {{/each}}
             </div>
