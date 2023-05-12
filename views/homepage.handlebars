@@ -1,24 +1,41 @@
 <div class="container">
-        <div class="row">
-            
-            <!-- Left side user section -->
-            {{> side-col }}
+    <div class="row">
+        <!-- Left side user section -->
+        {{> side-col }}
 
-            <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
-                <!-- Post preview-->
+        <div class="col-12 col-md-8 col-lg-8">
+            <div class="explore-title">
+                <h2 class="explore-heading">Explore</h2>
+            </div>
+            <!-- Post previews -->
+            <div class="post-previews">
                 {{#each posts as |post|}}
-                <div class="post-preview">
-                    <a href="post/{{post.id}}">
-                        <h2 class="post-title">{{post.title}}</h2>
-                        <h3 class="post-subtitle">{{post.content}}</h3>
-                    </a>
-                    <p class="post-meta">
-                        Posted by <a href="#!">{{post.user/username}}</a> on {{format_date post.date_created}} @ {{format_time post.date_created}}
-                    </p>
+                <div class="post-preview card">
+                    <div class="card-body">
+                        <div class="user-info">
+                            <img src="/img/profile/default_avatar.png" alt="User Avatar" class="profile-picture">
+                            <div class="user-details">
+                                <a href="#" class="user-name">{{post.user/username}}</a>
+                                <span class="post-time">{{format_date post.date_created}} @ {{format_time post.date_created}}</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <a href="post/{{post.id}}">
+                                <h2 class="post-title">{{post.title}}</h2>
+                                <h3 class="post-subtitle">{{post.content}}</h3>
+                            </a>
+                        </div>
+                        <div class="post-actions">
+                            <button class="btn btn-primary">Like</button>
+                            <button class="btn btn-secondary">
+                             <a href="/signup" class="btn-link">Comment</a>
+                            </button>
+
+                        </div>
+                    </div>
                 </div>
-                <!-- Divider-->
-                <hr class="my-4" />
                 {{/each}}
             </div>
         </div>
     </div>
+</div>
