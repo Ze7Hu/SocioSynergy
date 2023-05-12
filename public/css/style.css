@@ -48,7 +48,7 @@ a:focus {
 }
 
 .list-menu li a:hover {
-  background-color: rgba(51, 166, 227, 0.7);
+  background-color: rgb(29, 155, 240, 0.6);
   padding: 8px;
   border-radius: 20px;
 }
