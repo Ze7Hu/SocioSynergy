@@ -1,25 +1,51 @@
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-4 col-lg-3">
-            <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
-                <h5>Profile Menu</h5>
-                <a href="/" role="button" class="btn button_slide slide_right">Home</a>
-                <br>
-                <a href="/create-post" role="button" class="btn button_slide slide_right">Create Post</a>
-                <br>
-                <a onclick=logout() role="button" class="btn button_slide slide_right">Log Out</a>
+        {{> side-col}}
+        {{!-- <div class="col-12 col-md-4 col-lg-3 mb-3">
+            <div class="container custom-block border border-0 rounded">
+                <div class="row p-3">
+                    <div class="col-3 mb-2">
+                        <img src="/img/profile/default_avatar.png" class="profile-picture">
+                    </div>
+                    <div class="col-12 col-lg-9">
+                        <ul class="profile-list">
+                            <li><i class="fa-solid fa-user"></i> {{user.username}}</li>
+                            <li><i class="fa-sharp fa-solid fa-plus"></i> Add post</li>
+                            <li><i class="fa-solid fa-star"></i> Followers</li>
+                            <li onclick=logout()><i class="fa-solid fa-door-open"></i> Logout</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-            <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
-            <h2> {{user.username}}</h2>
+        </div> --}}
+        
+        <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded">
+            <div class="nav flex-column">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Messages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Edit details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Update profile picture</a>
+                    </li>
+          </ul>
+    </div>
+            {{!-- <h2> {{user.username}}</h2>
             <div class="profile-info">
-                <img src="{{profilePicture}}" alt="Profile Picture" class="profile-picture">
+                <img src="/img/profile/default_avatar.png" alt="Profile Picture" class="profile-picture">
                 <h4> {{user.first_name}} {{user.last_name}}</h4>
                 <h4> {{user.email}}</h4>
                 <h4> {{user.gender}}</h4>
-            </div>
+            </div> --}}
+            {{!-- <hr class="my-4"> --}}
+            <h2 class="pt-2" align="center">My Posts</h2>
             <hr class="my-4">
-            <h2>My Posts</h2>
             {{#if user.posts}}
                 {{#each user.posts as |post|}}
                     <div class="post-preview">

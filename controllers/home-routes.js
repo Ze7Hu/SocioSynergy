@@ -20,8 +20,13 @@ router.get('/', async (req, res) => {
             ]
         });
         const posts = postData.map((post) => post.get({ plain:true }));
-        console.log(posts)
-        res.render('homepage', { posts, logged_in: req.session.logged_in })
+        res.render('homepage', { 
+            posts, 
+            logged_in: req.session.logged_in, 
+            username: req.session.username, 
+            user_id: req.session.user_id,
+            profile_picture: req.session.profile_picture 
+        });
     } catch (error) {
         res.status(500).json(error);
     }
@@ -102,8 +107,13 @@ router.get('/profile', withAuth, (req, res) => {
             return;
         }
         const user = userData.get({ plain: true });
-        console.log(user);
-        res.render('profile', { user, logged_in: req.session.logged_in} );
+        res.render('profile', { 
+            user, 
+            logged_in: req.session.logged_in, 
+            username: req.session.username,
+            user_id: req.session.user_id,
+            profile_picture: req.session.profile_picture  
+        });
     })
     .catch(err => {
         console.log(err);

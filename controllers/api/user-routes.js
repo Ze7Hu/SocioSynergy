@@ -17,19 +17,12 @@ router.get('/', (req, res) => {
 // POST route to create new user
 router.post('/', async (req, res) => {
     try {
-      const { username, first_name, last_name, email, gender, password } = req.body;
-  
-      const userData = await User.create({
-        username,
-        first_name,
-        last_name,
-        email,
-        gender,
-        password
-      });
+      const userData = await User.create(req.body);
   
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
+      req.session.profile_picture = userData.profile_picture;
   
       res.status(200).json(userData);
     } catch (error) {
@@ -129,6 +122,7 @@ router.post('/login', (req, res) => {
         req.session.save(() => { // Save the user's session data in the server-side session store
             req.session.user_id = userData.id;
             req.session.username = userData.username;
+            req.session.profile_picture = userData.profile_picture;
             req.session.logged_in = true;
 
             res.json({ user: userData, message: 'You are now logged in'});
