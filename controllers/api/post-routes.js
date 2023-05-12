@@ -89,7 +89,7 @@ router.get('/:id', (req, res) => {
 
 
 // POST route to create a new post requiring authentication
-router.post('/new-post', withAuth, (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,

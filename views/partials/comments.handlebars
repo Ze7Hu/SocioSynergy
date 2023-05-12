@@ -1,25 +1,36 @@
 <!-- Comments Template -->
 
-<div class="comments-section">
-  {{#each comments}}
-    <div class="comment">
-      <div class="comment-header">
-        <h4>{{user.username}}</h4>
-        <p>{{format_date created_at}}</p>
-      </div>
-      <div class="comment-text">
-        {{text}}
-      </div>
-    </div>
-  {{/each}}
-</div>
+<div class="container" align="center">
+    <div class="row">
+        <div class="custom-block col-sm-4 mx-auto">
+            <div class="comments-section">
+                {{#each comments}}
+                <div class="comment">
+                    <div class="comment-header">
+                        <h4>{{user.username}}</h4>
+                        <p>{{format_date created_at}}</p>
+                    </div>
+                    <div class="comment-text">
+                        {{text}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
 
-{{!-- Add comment form --}}
-<form id="add-comment-form">
-  <div class="form-group">
-    <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Add your comment"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit Comment</button>
-</form>
+            <div class="card-body new-post-form">
+                <h3 class="card-header">Add Comment</h3>
+                <form id="add-comment-form">
+                    <div class="mb-3">
+                        <label for="comment-textarea" class="form-label">Your Comment</label>
+                        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Add your comment"></textarea>
+                    </div>
+                    <div class="pt-3 mb-3">
+                        <button class="btn button_slide slide_right" type="submit">Submit Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="/js/add-comment.js"></script>
