@@ -3,6 +3,7 @@ const { Post, User, Comment} = require ('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
+
 // GET route to retrieve all posts sorted by the creation date in descending order, with the associated user and comments for each post
 router.get('/', (req, res) => {
     Post.findAll({
@@ -88,7 +89,7 @@ router.get('/:id', (req, res) => {
 
 
 // POST route to create a new post requiring authentication
-router.post('/', withAuth, (req, res) => {
+router.post('/new-post', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,

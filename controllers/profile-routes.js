@@ -91,9 +91,9 @@ router.get ('/edit/:id', withAuth, (req, res) => {
     });
 })
 
-// GET route to render new-post template to create a new post
-router.get('/new', (req, res) => {
-    res.render('new-post')
+// GET route to render the new post form
+router.get('/new', withAuth, (req, res) => {
+    res.render('new-post'); 
 });
 
 module.exports = router;
