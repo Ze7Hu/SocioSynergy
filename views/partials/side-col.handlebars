@@ -1,6 +1,6 @@
 {{#if logged_in}}
 <div class="col-12 col-md-4 col-lg-3">
-    <div class="container custom-block border border-0 rounded p-3 mb-3">
+    <div class="container custom-block border border-0 rounded p-3 mb-3 logged-in-menu">
         <div class="d-flex align-items-center mb-3">
             {{#if profile_picture}}
             <img src="/img/profile/{{user_id}}.png" class="profile-picture me-2">
@@ -14,9 +14,9 @@
             <br>
             <li><a href="/"><i class="bi bi-person me-2 fa-solid fa-house"></i>Home</a></li>
              <br>
-            <li><a href="/profile/new"><i class="bi bi-person me-2 fa-sharp fa-solid fa-plus"></i>Add Post</a></li>
+            <li><a href="/compose"><i class="bi bi-person me-2 fa-sharp fa-solid fa-plus"></i>New Post</a></li>
              <br>
-            <li><a href="/profile/followers"><i class="bi bi-person me-2 fa-solid fa-star"></i>Followers</a></li>
+            <li><a href="/followers"><i class="bi bi-person me-2 fa-solid fa-star"></i>Followers</a></li>
              <br>
             <li onclick="logout()"><a href="#"><i class="bi bi-box-arrow-right me-2 fa-solid fa-door-open"></i>Logout</a></li>
         </ul>
@@ -25,8 +25,14 @@
 <script src="/js/logout.js"></script>
 {{else}}
 <div class="col-12 col-md-4 col-lg-3">
-    <div class="container custom-block border border-0 rounded p-3 mb-3" align="center">
-        <h5>Join SocioSynergy now!</h5>
+    <!-- Twitter logo -->
+    <div class="p-2">
+        <img src="/img/SS-logo.png" height="50px" width="80px" alt="">
+    </div>
+    <br>
+    <div class="container custom-block border border-0 rounded p-3 mb-3 box-style" align="center">
+        <h5>New to SocioSynergy?</h5>
+        <br>
         <a href="/signup" role="button" class="btn btn-primary signup-btn me-2">Sign up</a>
         <a href="/login" role="button" class="btn btn-outline-primary">Log in</a>
     </div>

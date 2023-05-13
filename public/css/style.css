@@ -32,6 +32,17 @@ a:focus {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+h5 {
+  font-family: inherit;
+ font-weight: bold;
+ font-size: larger;
+}
+
+.box-style,
+.logged-in-menu {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
 
 .profile-picture {
     width: 100px;
