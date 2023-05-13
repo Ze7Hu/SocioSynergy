@@ -21,5 +21,5 @@ async function addPost(event) {
     }
   };
   
-  document.querySelector('#new-post-form').addEventListener('submit', addPost);
+  document.querySelector('.new-post-form').addEventListener('submit', addPost);
   
