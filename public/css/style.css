@@ -58,7 +58,20 @@ h5 {
     list-style-type: none;
     margin-left: 25px;
 }
+.profile-container{
+  background-color: white;
+}
 
+.what-is-happening {
+  font-size: 18px;
+  font-weight: bold;
+}
+.new-post  {
+  background-color: rgb(29, 155, 240, 0.6);
+  padding: 8px;
+  border-radius: 20px;
+  text-align: center;
+}
 .list-menu li a:hover {
   background-color: rgb(29, 155, 240, 0.6);
   padding: 8px;
