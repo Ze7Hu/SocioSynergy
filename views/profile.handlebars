@@ -36,6 +36,15 @@
                     </li>
           </ul>
     </div>
+
+     <div class="d-flex align-items-center mb-3">
+            {{#if profile_picture}}
+            <img src="/img/profile/{{user_id}}.png" class="profile-picture me-2">
+            {{else}}
+            <img src="/img/profile/default_avatar.png" class="profile-picture me-2">
+            {{/if}}
+            <h5 class="mb-0">{{username}}</h5>
+        </div>
             {{!-- <h2> {{user.username}}</h2>
             <div class="profile-info">
                 <img src="/img/profile/default_avatar.png" alt="Profile Picture" class="profile-picture">
