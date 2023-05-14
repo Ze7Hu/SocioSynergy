@@ -1,6 +1,6 @@
 const router = require('express').Router();
+const path = require('path');
 const { User, Post, Comment } = require('../../models');
-
 
 // GET route to retrieve all users from the database excluding their passwords
 router.get('/', (req, res) => {
@@ -186,6 +186,33 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+// Upload profile picture and amend User database
+router.post('/upload', (req, res) => {
+    User.update(
+        { profile_picture: true },
+        { where: { id: req.session.user_id }}
+    ).then(userData => {
+        if(!userData) {
+            res.status.json({ message: 'A user with this ID could not be found'});
+            return;
+        };
+
+        const { file } = req.files;
+
+        try {
+            if(!file) return res.status(400);
+        file.mv(path.join(__dirname, '../../public/img/profile/') + req.session.user_id + '.png');
+        } catch (error) {
+            res.status(400).json(error);
+        }
+
+        res.redirect('/profile');
+    }).catch(error => {
+        console.log(error);
+        res.status(500).json(error);
+    })
 });
 
 module.exports = router;
