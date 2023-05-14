@@ -18,6 +18,11 @@ a {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.nav-link:focus,
+.nav-link:hover {
+  color: red;
+}
+
 .profile-picture {
     width: 100px;
     height: 110px;
