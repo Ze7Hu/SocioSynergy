@@ -66,12 +66,28 @@ h5 {
   font-size: 18px;
   font-weight: bold;
 }
+
 .new-post  {
   background-color: rgb(29, 155, 240, 0.6);
   padding: 8px;
   border-radius: 20px;
   text-align: center;
 }
+
+.new-post:hover {
+  background-color: rgba(110, 177, 222, 0.6);
+}
+
+.new-post-side{
+  background-color: rgb(29, 155, 240, 0.6);
+  padding: 8px;
+  border-radius: 20px;
+}
+.new-post-side:hover {
+ background-color: rgba(110, 177, 222, 0.6) !important;
+
+}
+
 .list-menu li a:hover {
   background-color: rgb(29, 155, 240, 0.6);
   padding: 8px;
@@ -91,6 +107,7 @@ h5 {
 .signup-link:hover {
     color: rgb(0, 0, 0) !important;
 }
+/* Buttons */
 
 .signup-btn {
   background-color: rgb(29, 155, 240);
@@ -103,8 +120,14 @@ h5 {
   background-color: rgb(29, 155, 240);
 }
 
+.like-btn.clicked .fa-solid.fa-heart,
+.follow-btn.clicked .fa-solid.fa-star {
+  color: red;
+}
+
+
 .comment-btn {
-background-color: #aab7c3;
+background-color: #c2cdd8;
 }
 
 /* CODEPEN.IO BUTTON STYLE */
