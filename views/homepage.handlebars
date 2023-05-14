@@ -10,10 +10,14 @@
             <!-- Post previews -->
             <div class="post-previews">
                 {{#each posts as |post|}}
-                <div class="post-preview card">
+                <div class="post-preview card mb-2">
                     <div class="card-body">
                         <div class="user-info">
+                            {{#if post.user/profile_picture}}
+                            <img src="/img/profile/{{post.user/id}}.png" alt="User Avatar" class="profile-picture">
+                            {{else}}
                             <img src="/img/profile/default_avatar.png" alt="User Avatar" class="profile-picture">
+                            {{/if}}
                             <div class="user-details">
                                 <a href="#" class="user-name">{{post.user/username}}</a>
                                 <span class="post-time">{{format_date post.date_created}} @ {{format_time post.date_created}}</span>

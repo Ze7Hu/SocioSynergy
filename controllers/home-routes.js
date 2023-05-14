@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
+                    attributes: ['id', 'username', 'profile_picture'],
                 }
             ],
             order: [
@@ -23,9 +23,7 @@ router.get('/', async (req, res) => {
         res.render('homepage', { 
             posts, 
             logged_in: req.session.logged_in, 
-            username: req.session.username, 
-            user_id: req.session.user_id,
-            profile_picture: req.session.profile_picture 
+            username: req.session.username
         });
     } catch (error) {
         res.status(500).json(error);
@@ -142,7 +140,7 @@ router.get('/signup', (req, res) => {
 
 
 // GET request for specific post 
-router.get('/post/:id', (req, res) => {
+router.get('/post/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -174,7 +172,7 @@ router.get('/post/:id', (req, res) => {
     })
     .then(data => {
         if (!data) {
-            res.status(404).json({message: 'A user with this ID could not be found'});
+            res.status(404).json({message: 'A post with this ID could not be found'});
             return;
         }
         const post = data.get({ plain: true});
