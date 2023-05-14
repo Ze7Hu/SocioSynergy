@@ -81,7 +81,7 @@ h5 {
 .nav-item a:hover,
 .profile-list li:hover,
 .profile-list li a:hover {
-  color: white;
+  color: rgb(0, 132, 255);
   cursor: pointer;
 }
 .signup-link{
