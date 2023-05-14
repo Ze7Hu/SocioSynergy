@@ -29,7 +29,7 @@
                         <a class="nav-link" href="#">Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Edit details</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#edit-user-details">Edit details</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#upload-picture">Update profile picture</a>
@@ -79,6 +79,7 @@
     </div>
 </div>
 
+{{!-- UPLOAD PICTURE MODAL --}}
 <div class="modal fade" id="upload-picture" tabindex="-1" role="dialog" aria-labelledby="upload-profile-picture" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -100,4 +101,40 @@
     </div>
   </div>
 </div>
-<script src="/js/logout.js"></script>
+
+{{!-- EDIT USER DETAILS MODAL --}}
+<div class="modal fade" id="edit-user-details" tabindex="-1" role="dialog" aria-labelledby="editProfile" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="text-center edit-form">
+            <div class="mb-3 d-none">
+                <input class="form-control" type="user_id" id="user_id" name="user_id" placeholder="User ID" value="{{user.id}}">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="username" id="username" name="username" placeholder="Username" value="{{user.username}}">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" id="first_name" name="first_name" placeholder="First name" value="{{user.first_name}}">
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Last name" value="{{user.last_name}}">
+            </div>
+            <div class="pt-3 mb-3">
+                <button class="btn button_slide slide_right" type="submit">Update</button>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/edit-profile.js"></script>
