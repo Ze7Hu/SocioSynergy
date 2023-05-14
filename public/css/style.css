@@ -84,15 +84,18 @@ h5 {
   color: white;
   cursor: pointer;
 }
+.signup-link{
+  color:rgb(29, 155, 240, 0.6) !important;
+}
 
 .signup-link:hover {
-    color: rgb(189, 189, 189);
+    color: rgb(0, 0, 0) !important;
 }
 
 .signup-btn {
   background-color: rgb(29, 155, 240);
   border-color: transparent;
-  color: white !important;;
+  color: white !important;
 }
 
 .like-btn,
@@ -126,6 +129,10 @@ background-color: #aab7c3;
 }
 
 /* post preview style from bootstrap studio */
+
+/* .like-btn{
+  background-color: rgb(235, 89, 130);
+} */
 .post-preview > a {
     color: #212529;
   }
