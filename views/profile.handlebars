@@ -32,7 +32,7 @@
                         <a class="nav-link" href="#">Edit details</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Update profile picture</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#upload-picture">Update profile picture</a>
                     </li>
           </ul>
     </div>
@@ -41,7 +41,7 @@
             {{#if profile_picture}}
             <img src="/img/profile/{{user_id}}.png" class="profile-picture me-2">
             {{else}}
-            <img src="/img/profile/default_avatar.png" class="profile-picture me-2">
+            <img src="/img/default_avatar.png" class="profile-picture me-2">
             {{/if}}
             <h5 class="mb-0">{{username}}</h5>
         </div>
@@ -79,4 +79,25 @@
     </div>
 </div>
 
+<div class="modal fade" id="upload-picture" tabindex="-1" role="dialog" aria-labelledby="upload-profile-picture" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload profile picture</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/api/users/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" accept="image/png, image/jpeg" name="file">
+            <button class="btn btn-primary" type="submit" value="Upload">Upload</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="/js/logout.js"></script>

@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const upload = require('express-fileupload');
 const routes = require('./controllers'); // Define the routes for the web application
 const helpers = require('./utils/helpers');
 
@@ -41,6 +42,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json()); //Middlewares to enable parsing of JSON and urlencoded form data in requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the public directory.
+app.use(upload());
 
 app.use(routes); //Define the routes
 
