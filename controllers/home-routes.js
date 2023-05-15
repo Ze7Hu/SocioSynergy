@@ -116,6 +116,7 @@ router.get('/profile', withAuth, (req, res) => {
     })
     .catch(err => {
         console.log(err);
+        res.status(500).json(error);
     });
 });
 
@@ -232,5 +233,61 @@ router.get('/posts-comments', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+router.get('/user/:id', withAuth, (req, res) => {
+    if(req.session.user_id == req.params.id) {
+        res.status(200).redirect('../profile')
+    } else {
+        User.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: { eclude: ['password']},
+            include: [{
+                model: Post,
+                order: [
+                    ['created_at', 'DESC']
+                ],
+                attributes: [
+                    'id',
+                    'title',
+                    'content',
+                    'created_at'
+                ]
+            },
+            {
+                model: Comment,
+                attributes: [
+                    'id',
+                    'text',
+                    'created_at'
+                ],
+                include: {
+                    model: Post,
+                    attributes: ['title']
+                }
+            },
+            {
+                model: Post,
+                attributes: ['title'],
+            }]
+        }).then(userData => {
+            if(!userData) {
+                res.status(404).json({ message: 'A user with that id could not be found'});
+                return;
+            }
+
+            const user = userData.get({ plain: true });
+            res.render('user-preview', {
+                user,
+                logged_in: req.session.logged_in, 
+                username: req.session.username,
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error);
+        })
+    }
+})
 
 module.exports = router;

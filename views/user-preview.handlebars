@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        {{> side-col}}
+        {{!-- <div class="col-12 col-md-4 col-lg-3 mb-3">
+            <div class="container custom-block border border-0 rounded">
+                <div class="row p-3">
+                    <div class="col-3 mb-2">
+                        <img src="/img/profile/default_avatar.png" class="profile-picture">
+                    </div>
+                    <div class="col-12 col-lg-9">
+                        <ul class="profile-list">
+                            <li><i class="fa-solid fa-user"></i> {{user.username}}</li>
+                            <li><i class="fa-sharp fa-solid fa-plus"></i> Add post</li>
+                            <li><i class="fa-solid fa-star"></i> Followers</li>
+                            <li onclick=logout()><i class="fa-solid fa-door-open"></i> Logout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        
+        <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded profile-container">
+
+            <div class="d-flex align-items-center mb-3">
+                {{#if user.profile_picture}}
+                <img src="/img/profile/{{user.id}}.png" class="profile-picture me-2">
+                {{else}}
+                <img src="/img/default_avatar.png" class="profile-picture me-2">
+                {{/if}}
+                <h5 class="mb-0">{{user.username}}</h5>
+                <div class="mx-auto">
+                    <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
+                    <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="#" class="btn-link">Send message</a></button>
+                </div>
+            </div>
+
+            <h2> {{user.username}}</h2>
+            <div class="profile-info">
+                <h4> Full name: {{user.first_name}} {{user.last_name}}</h4>
+                <h4> Gender: {{user.gender}}</h4>
+            </div> 
+            <hr class="my-4">
+            <h2 class="pt-2 what-is-happening" align="center">See what {{username}} posted:</h2>
+            <hr class="my-4">
+                {{#if user.posts}}
+                    {{#each user.posts as |post|}}
+                        <div class="post-preview">
+                            <a href="../post/{{post.id}}">
+                                <h2 class="post-title">{{post/title}}</h2>
+                                <h3 class="post-subtitle">{{post.content}}</h3>
+                            </a>
+                        </div>
+                        <hr class="my-4">
+                    {{/each}}
+                {{else}}
+                    <p>No posts found.</p>
+                {{/if}}
+        </div>
+    </div>
+</div>
