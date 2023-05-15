@@ -23,9 +23,13 @@
 
             <div class="d-flex align-items-center mb-3">
                 {{#if user.profile_picture}}
+                <a href="/user/{{post.user/id}}" class="user-name">
                 <img src="/img/profile/{{user.id}}.png" class="profile-picture me-2">
+                </a>
                 {{else}}
+                <a href="/user/{{post.user/id}}" class="user-name">
                 <img src="/img/default_avatar.png" class="profile-picture me-2">
+                </a>
                 {{/if}}
                 <h5 class="mb-0">{{user.username}}</h5>
                 <div class="mx-auto">
@@ -45,6 +49,9 @@
                 {{#if user.posts}}
                     {{#each user.posts as |post|}}
                         <div class="post-preview">
+                                <p class="post-meta">
+                                <span class="post-time">{{format_date post.created_at}} @ {{format_time post.created_at}}</span>
+                                 </p>
                             <a href="../post/{{post.id}}">
                                 <h2 class="post-title">{{post/title}}</h2>
                                 <h3 class="post-subtitle">{{post.content}}</h3>
