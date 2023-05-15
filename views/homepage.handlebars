@@ -14,11 +14,11 @@
                     <div class="card-body">
                         <div class="user-info">
                             {{#if post.user/profile_picture}}
-                            <a href="/profile">
+                            <a href="/user/{{post.user/id}}" class="user-name">
                             <img src="/img/profile/{{post.user/id}}.png" alt="User Avatar" class="profile-picture">
                             </a>
                             {{else}}
-                            <a href="/profile">
+                            <a href="/user/{{post.user/id}}" class="user-name">
                             <img src="/img/default_avatar.png" alt="User Avatar" class="profile-picture">
                             </a>
                             {{/if}}

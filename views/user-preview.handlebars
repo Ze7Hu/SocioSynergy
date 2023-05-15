@@ -40,7 +40,7 @@
                 <h4> Gender: {{user.gender}}</h4>
             </div> 
             <hr class="my-4">
-            <h2 class="pt-2 what-is-happening" align="center">See what {{username}} posted:</h2>
+            <h2 class="pt-2 what-is-happening" align="center">See what {{user.username}} posted:</h2>
             <hr class="my-4">
                 {{#if user.posts}}
                     {{#each user.posts as |post|}}
