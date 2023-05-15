@@ -14,9 +14,13 @@
                     <div class="card-body">
                         <div class="user-info">
                             {{#if post.user/profile_picture}}
+                            <a href="/profile">
                             <img src="/img/profile/{{post.user/id}}.png" alt="User Avatar" class="profile-picture">
+                            </a>
                             {{else}}
+                            <a href="/profile">
                             <img src="/img/default_avatar.png" alt="User Avatar" class="profile-picture">
+                            </a>
                             {{/if}}
                             <div class="user-details">
                                 <a href="#" class="user-name">{{post.user/username}}</a>
