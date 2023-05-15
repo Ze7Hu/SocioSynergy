@@ -242,7 +242,7 @@ router.get('/user/:id', withAuth, (req, res) => {
             where: {
                 id: req.params.id
             },
-            attributes: { eclude: ['password']},
+            attributes: { exclude: ['password']},
             include: [{
                 model: Post,
                 order: [
