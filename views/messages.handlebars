@@ -1,0 +1,29 @@
+{{!-- {{#each msgs as |msg|}}
+{{recipient_id}}
+{{sender_id}}
+{{msg_content}}
+<br>
+{{/each}} --}}
+
+<div class="container">
+    <div class="row">
+        {{> side-col}}
+        <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded profile-container">
+            <h2 class="pt-2 what-is-happening" align="center">Latest received messages:</h2>
+            <hr class="my-4">
+                {{#if msgs}}
+                    {{#each msgs as |msg|}}
+                        <div class="post-preview">
+                            <a href="../post/{{post.id}}">
+                                <p class="post-meta">from {{sender.username}} / {{format_date date_created}} @ {{format_time date_created}}</p>
+                                <h3 class="post-subtitle">{{msg_content}}</h3>
+                            </a>
+                        </div>
+                        <hr class="my-4">
+                    {{/each}}
+                {{else}}
+                    <p>No messages found.</p>
+                {{/if}}
+        </div>
+    </div>
+</div>
