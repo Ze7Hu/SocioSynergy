@@ -1,42 +1,42 @@
-<!-- Comments Template -->
+<div class="container">
 
-<div class="container" align="center">
-    <div class="row">
-        <div class="custom-block col-sm-4 mx-auto">
-            <div class="comments-section">
-                {{#each comments}}
-                <div class="comment">
-                    <div class="comment-header">
-                        <h4>{{user.username}}</h4>
-                        <p>{{format_date created_at}}</p>
-                    </div>
-                    <div class="comment-text">
-                        {{text}}
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-
-            <div class="card-body new-post-form">
-                <h3 class="card-header">Add Comment</h3>
-                <br>
-                <form id="add-comment-form">
-                    <div class="mb-3">
-                        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Add your comment"></textarea>
-                    </div>
-                    <div class="pt-3 mb-3">
-                        <button class="btn btn-primary submit-btn" type="submit">Submit Comment</button>
-                    </div>
-
-                </form>
-            </div>
+ <div class="row">
+    <div class="col-sm-9 mx-auto">
+      <div class="comments-section">
+        {{#each post.comments as |comment|}}
+        <div class="comment">
+          <div class="comment-header">
+            <h5>{{comment.user.username}}</h5>
+            <p>{{format_date comment.created_at}} @ {{format_time comment.created_at}}</p>
+          </div>
+          <div class="comment-text">
+            {{comment.text}}
+          </div>
         </div>
+        <hr>
+        {{/each}}
+      </div>
     </div>
-    <div class="nav-item">
-        <a href="/profile">Profile</a>
-        <a href="/">Home</a>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 mx-auto mb-2">
+      <div class="card">
+        <div class="card-header">
+          <h5>Add Comment</h5>
+        </div>
+        <div class="card-body new-post-form">
+          <form id="add-comment-form">
+            <div class="mb-3">
+              <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Add your comment"></textarea>
+            </div>
+            <div class="pt-3 mb-3">
+              <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
+
+
 </div>
-
-
-<script src="/js/add-comment.js"></script>
