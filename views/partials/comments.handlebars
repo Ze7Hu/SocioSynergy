@@ -4,20 +4,8 @@
     <div class="row">
         <div class="custom-block col-sm-4 mx-auto">
             <div class="comments-section">
-                {{#each comments}}
-                <div class="comment">
-                    <div class="comment-header">
-                        <h4>{{user.username}}</h4>
-                        <p>{{format_date created_at}}</p>
-                    </div>
-                    <div class="comment-text">
-                        {{text}}
-                    </div>
-                </div>
-                {{/each}}
-            </div>
 
-            <div class="card-body new-post-form">
+                <div class="card-body new-post-form">
                 <h3 class="card-header">Add Comment</h3>
                 <br>
                 <form id="add-comment-form">
@@ -29,6 +17,20 @@
                     </div>
 
                 </form>
+                </div>
+
+                {{#each post.comments as |comment|}}
+                <div class="comment">
+                    <div class="comment-header">
+                        <h4>{{user_id}}</h4>
+                        <p>{{format_date created_at}} @ {{format_time created_at}}</p>
+                    </div>
+                    <div class="comment-text">
+                        {{text}}
+                    </div>
+                </div>
+                <hr>
+                {{/each}}
             </div>
         </div>
     </div>

@@ -7,7 +7,6 @@ async function commentFormHandler(event) {
   ];
 
   if (text) {
-    console.log(text);
     try {
       const response = await fetch('/api/comments', {
         method: 'POST',
@@ -16,7 +15,7 @@ async function commentFormHandler(event) {
           'Content-Type': 'application/json',
         },
       });
-    
+
       if (!response.ok) {
         throw new Error(response.statusText);
       }
@@ -24,7 +23,7 @@ async function commentFormHandler(event) {
       console.log('Successs');
       document.location.reload();
     } catch (err) {
-      console.log('Error:', err.message);
+      // console.log('Error:', err.message);
       alert('Error while submitting the comment');
       document.querySelector('#add-comment-form').style.display = 'block';
     }

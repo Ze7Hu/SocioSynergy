@@ -178,7 +178,7 @@ router.get('/post/:id', withAuth, (req, res) => {
         }
         const post = data.get({ plain: true});
         console.log(post);
-        res.render('single-post', { post, loggedIn: req.session.loggedIn});
+        res.render('single-post', { post, logged_in: req.session.logged_in});
     })
     .catch(err => {
         console.log(err);

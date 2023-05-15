@@ -23,6 +23,7 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    
     date_created: {
       type: DataTypes.DATE,
       field: 'created_at'
