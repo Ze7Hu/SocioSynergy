@@ -168,6 +168,11 @@ background-color: #c2cdd8;
 /* .like-btn{
   background-color: rgb(235, 89, 130);
 } */
+.bg-content{
+  background-color: rgba(226, 231, 234, 0.6);
+    border-radius: 15px;
+    padding: 25px;
+}
 .post-preview {
     color: #212529;
     padding: 25px;
