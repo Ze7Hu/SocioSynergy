@@ -23,7 +23,7 @@
                             </a>
                             {{/if}}
                             <div class="user-details">
-                                <a href="#" class="user-name">{{post.user/username}}</a>
+                                <a href="/user/{{post.user/id}}" class="user-name">{{post.user/username}}</a>
                                 <span class="post-time">{{format_date post.date_created}} @ {{format_time post.date_created}}</span>
                             </div>
                         </div>
