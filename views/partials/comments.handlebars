@@ -6,7 +6,7 @@
         {{#each post.comments as |comment|}}
         <div class="comment">
           <div class="comment-header">
-            <h4>{{comment.user_id}}</h4>
+            <h5>{{comment.user.username}}</h5>
             <p>{{format_date comment.created_at}} @ {{format_time comment.created_at}}</p>
           </div>
           <div class="comment-text">
