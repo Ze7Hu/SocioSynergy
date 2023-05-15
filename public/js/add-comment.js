@@ -1,34 +1,39 @@
-// Add comments to posts 
-
 async function commentFormHandler(event) {
-    event.preventDefault();
-  
-    const comment_text = document.querySelector('textarea#comment-textarea').value.trim();
-  
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-  
-    if (comment_text) {
+  event.preventDefault();
+
+  const text = document.querySelector('textarea#comment-textarea').value.trim();
+  const post_id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+
+  if (text) {
+    console.log(text);
+    try {
       const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({
-          post_id,
-          comment_text
-        }),
+        body: JSON.stringify({ text, post_id }),
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
-  
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        alert(response.statusText);
-        document.querySelector('#add-comment-form').style.display = "block";
+    
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
+      
+      console.log('Successs');
+      document.location.reload();
+    } catch (err) {
+      console.log('Error:', err.message);
+      alert('Error while submitting the comment');
+      document.querySelector('#add-comment-form').style.display = 'block';
     }
   }
-  
-  document.querySelector('#add-comment-form').addEventListener('submit', commentFormHandler);
-  
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addCommentForm = document.querySelector('#add-comment-form');
+  if (addCommentForm) {
+    addCommentForm.addEventListener('submit', commentFormHandler);
+  }
+});

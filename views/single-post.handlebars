@@ -10,14 +10,10 @@
         {{post.content}}
     </p>
 </div>
-<input type="hidden" name="post-id" value="{{post.id}}" />
+{{!-- <input type="hidden" name="post-id" value="{{post.id}}" /> --}}
 
-{{> comments}}
-
-<script src="/js/comment.js"></script>
-
-{{!-- {{> comments post.comments}}
+{{> comments  }}
 
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}} --}}
+<script src="/js/add-comment.js"></script>
+{{/if}}
