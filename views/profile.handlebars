@@ -61,6 +61,10 @@
             {{#if user.posts}}
                 {{#each user.posts as |post|}}
                     <div class="post-preview">
+                          <p class="post-meta">
+            <span class="post-time">{{format_date post.created_at}} @ {{format_time post.created_at}}</span>
+          </p>
+                          
                         <a href="profile/edit/{{post.id}}">
                             <h2 class="post-title">{{post/title}}</h2>
                             <h3 class="post-subtitle">{{post.content}}</h3>
