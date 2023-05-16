@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
         }
         const msgs = msgData.map((msg) => msg.get({ plain: true }))
         console.log(msgs)
-        res.render('messages', { msgs, logged_in: req.session.logged_in })
+        res.render('messages', { msgs, logged_in: req.session.logged_in, user_id: req.session.user_id })
 
     })
 })

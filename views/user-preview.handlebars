@@ -59,6 +59,7 @@
     </div>
 </div>
 
+{{#if logged_in}}
 {{!-- send message modal --}}
 <div class="modal fade" id="sendMsg" tabindex="-1" role="dialog" aria-labelledby="sendMessageModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -98,4 +99,5 @@
 </div>
 
 {{!-- script --}}
-<script src="/js/send-msg.js"></script>
+<script src="/js/msg.js"></script>
+{{/if}}
