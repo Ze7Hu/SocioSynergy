@@ -105,7 +105,7 @@ To test this application, follow these steps:
 
 This project was created by:
 
-<a href="https://github.com/cdrcar">
+<a href="https://github.com/Abstynent">
   <img src="public/img/assets/github.png" alt="git" width="14" height="14">
   Lukasz Jurkiewicz
 </a>
