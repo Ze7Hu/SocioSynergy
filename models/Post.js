@@ -28,7 +28,7 @@ Post.init(
       type: DataTypes.DATE,
       field: 'created_at'
     },
-
+    
     // location:{
     //   type: DataTypes.STRING,
     //   allowNull: false
