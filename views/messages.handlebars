@@ -1,0 +1,72 @@
+{{!-- {{#each msgs as |msg|}}
+{{recipient_id}}
+{{sender_id}}
+{{msg_content}}
+<br>
+{{/each}} --}}
+
+<div class="container">
+    <div class="row">
+        {{> side-col}}
+        <div class="col-12 col-md-8 col-lg-8 vh-75 custom-block border border-0 rounded profile-container">
+            <h2 class="pt-2 what-is-happening" align="center">Latest received messages:</h2>
+            <hr class="my-4">
+                {{#if msgs}}
+                    {{#each msgs as |msg|}}
+                        <a data-toggle="modal" data-target="#msg-reply" class="msg-button" data-sender-id="{{sender.id}}" data-sender-name="{{sender.username}}" >
+                            <div class="post-preview">
+                            <p class="post-meta">from {{sender.username}} / {{format_date date_created}} @ {{format_time date_created}}</p>
+                            <h3 class="post-subtitle">{{msg_content}}</h3>
+                        </div>
+                        </a>
+                        <hr class="my-4">
+                    {{/each}}
+                {{else}}
+                    <p>No messages found.</p>
+                {{/if}}
+        </div>
+    </div>
+</div>
+
+{{!-- reply message modal --}}
+{{#if logged_in}}
+<div class="modal fade" id="msg-reply" tabindex="-1" role="dialog" aria-labelledby="sendMessageModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newMsg">Reply to:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group d-none">
+            <label for="recipient-id" class="col-form-label">Recipient ID:</label>
+            <input type="text" class="form-control" id="recipient-id" value="" readonly>
+          </div>
+          <div class="form-group d-none">
+            <label for="sender-id" class="col-form-label">Sender ID:</label>
+            <input type="text" class="form-control" id="sender-id" value="{{user_id}}" readonly>
+          </div>
+          <div class="form-group d-none">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name" value="" readonly>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick=sendMsg(event)>Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- script --}}
+<script src="/js/msg.js"></script>
+{{/if}}
