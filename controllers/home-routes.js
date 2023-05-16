@@ -116,7 +116,7 @@ router.get('/profile', withAuth, (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json(error);
+        res.status(500).json(err);
     });
 });
 
@@ -242,7 +242,7 @@ router.get('/user/:id', withAuth, (req, res) => {
             where: {
                 id: req.params.id
             },
-            attributes: { eclude: ['password']},
+            attributes: { exclude: ['password']},
             include: [{
                 model: Post,
                 order: [
@@ -282,6 +282,7 @@ router.get('/user/:id', withAuth, (req, res) => {
                 user,
                 logged_in: req.session.logged_in, 
                 username: req.session.username,
+                user_id: req.session.user_id,
             })
         })
         .catch(error => {

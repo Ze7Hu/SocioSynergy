@@ -23,21 +23,25 @@
 
             <div class="d-flex align-items-center mb-3">
                 {{#if user.profile_picture}}
+                <a href="/user/{{post.user/id}}" class="user-name">
                 <img src="/img/profile/{{user.id}}.png" class="profile-picture me-2">
+                </a>
                 {{else}}
+                <a href="/user/{{post.user/id}}" class="user-name">
                 <img src="/img/default_avatar.png" class="profile-picture me-2">
+                </a>
                 {{/if}}
                 <h5 class="mb-0">{{user.username}}</h5>
                 <div class="mx-auto">
                     <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
-                    <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="#" class="btn-link">Send message</a></button>
+                    <button class="btn btn-secondary comment-btn" data-toggle="modal" data-target="#sendMsg"><i class="fa-solid fa-comment"></i>Send message</button>
                 </div>
             </div>
 
-            <h2> {{user.username}}</h2>
+            
             <div class="profile-info">
-                <h4> Full name: {{user.first_name}} {{user.last_name}}</h4>
-                <h4> Gender: {{user.gender}}</h4>
+                <h4>{{user.first_name}} {{user.last_name}}</h4>
+                <h4>{{user.gender}}</h4>
             </div> 
             <hr class="my-4">
             <h2 class="pt-2 what-is-happening" align="center">See what {{user.username}} posted:</h2>
@@ -45,6 +49,9 @@
                 {{#if user.posts}}
                     {{#each user.posts as |post|}}
                         <div class="post-preview">
+                                <p class="post-meta">
+                                <span class="post-time">{{format_date post.created_at}} @ {{format_time post.created_at}}</span>
+                                 </p>
                             <a href="../post/{{post.id}}">
                                 <h2 class="post-title">{{post/title}}</h2>
                                 <h3 class="post-subtitle">{{post.content}}</h3>
@@ -58,3 +65,46 @@
         </div>
     </div>
 </div>
+
+{{#if logged_in}}
+{{!-- send message modal --}}
+<div class="modal fade" id="sendMsg" tabindex="-1" role="dialog" aria-labelledby="sendMessageModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newMsg">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group d-none">
+            <label for="recipient-id" class="col-form-label">Recipient ID:</label>
+            <input type="text" class="form-control" id="recipient-id" value="{{user.id}}" readonly>
+          </div>
+          <div class="form-group d-none">
+            <label for="sender-id" class="col-form-label">Sender ID:</label>
+            <input type="text" class="form-control" id="sender-id" value="{{user_id}}" readonly>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name" value="{{user.username}}" readonly>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick=sendMsg(event) data-dismiss="modal">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- script --}}
+<script src="/js/msg.js"></script>
+{{/if}}

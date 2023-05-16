@@ -23,14 +23,14 @@
             <div class="nav flex-column">
                 <ul class="nav justify-content-center">
                   <li>
-                    <a class="nav-link" href="/ckou"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a class="nav-link" href="/"><i class="fa-solid fa-arrow-left"></i></a>
                   </li>
       
                     {{!-- <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Messages</a>
+                        <a class="nav-link" href="/api/msg/{{user_id}}">Messages</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="modal" data-target="#edit-user-details">Edit details</a>
@@ -130,12 +130,15 @@
                 <input class="form-control" type="user_id" id="user_id" name="user_id" placeholder="User ID" value="{{user.id}}">
             </div>
             <div class="mb-3">
+              <p>Username</p>
                 <input class="form-control" type="username" id="username" name="username" placeholder="Username" value="{{user.username}}">
             </div>
             <div class="mb-3">
+              <p>First Name</p>
                 <input class="form-control" type="text" id="first_name" name="first_name" placeholder="First name" value="{{user.first_name}}">
             </div>
             <div class="mb-3">
+              <p>Last Name</p>
                 <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Last name" value="{{user.last_name}}">
             </div>
             <div class="pt-3 mb-3">
@@ -149,4 +152,6 @@
     </div>
   </div>
 </div>
+
+{{!-- script --}}
 <script src="/js/edit-profile.js"></script>
