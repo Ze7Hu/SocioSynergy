@@ -46,10 +46,25 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    
+    location: {
+      type:DataTypes.STRING,
+      allowNull: false
+    },
+
+    follower_id: {
+      type:DataTypes.INTEGER,
+      references: { 
+        model: "user",
+        key: "id"
+      }
+    },
+
     profile_picture: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    
     password: {
       type: DataTypes.STRING,
       allowNull: false,

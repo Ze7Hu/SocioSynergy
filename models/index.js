@@ -3,6 +3,7 @@ const Post = require("./Post");
 const Comment = require("./Comment");
 const Message = require("./Message");
 
+
 User.hasMany(Post, {
   foreignKey: "user_id", 
 });
@@ -10,6 +11,12 @@ User.hasMany(Post, {
 User.hasMany(Comment, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
+});
+
+User.hasMany(User,{
+  as:"follower",
+  foreignKey: "follower_id",
+  onDetele:"CASCADE",
 });
 
 Post.belongsTo(User, {
