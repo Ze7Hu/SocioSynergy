@@ -3,7 +3,6 @@ const { Post, User, Comment } = require("../../models");
 const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 
-// GET route to retrieve all posts sorted by the creation date in descending order, with the associated user and comments for each post
 router.get("/", (req, res) => {
   Post.findAll({
     attributes: ["id", "title", "content", "created_at"],
@@ -23,14 +22,14 @@ router.get("/", (req, res) => {
       },
     ],
 })
-    .then((postData) => res.json(postData.reverse())) // Reverse the order of the elements in the postData array so that the most recent posts will be displayed first instead of last
+    .then((postData) => res.json(postData.reverse())) 
     .catch((err) => {
     console.log(err);
     res.status(500).json(err);
     });
 });
 
-// POST route to create a new post requiring authentication
+
 router.post("/", withAuth, (req, res) => {
 Post.create({
     title: req.body.title,
@@ -44,7 +43,6 @@ Post.create({
     });
 });
 
-// PUT route to update a post with a specific ID requiring authentication
 router.put("/:id", withAuth, (req, res) => {
   Post.update(
     {
@@ -72,7 +70,6 @@ router.put("/:id", withAuth, (req, res) => {
     });
 });
 
-// DELETE route to delete a post with a specific ID
 router.delete("/:id", withAuth, (req, res) => {
   Post.destroy({
     where: {
