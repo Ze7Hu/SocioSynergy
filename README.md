@@ -43,7 +43,7 @@ Our user story is to provide a simple and easy-to-use platform that allows peopl
 
 ## [Deployment](#table-of-contents)
 
-[Link to Heroku]()
+[Link to Heroku](https://sociosynergy.herokuapp.com/)
 
 ## [Installation](#table-of-contents)
 
