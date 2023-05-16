@@ -2,7 +2,6 @@ const router = require("express").Router();
 const path = require("path");
 const { User, Post, Comment } = require("../../models");
 
-// GET route to retrieve all users from the database excluding their passwords
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
@@ -14,7 +13,6 @@ router.get("/", (req, res) => {
     });
 });
 
-// POST route to create new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -26,12 +24,11 @@ router.post("/", async (req, res) => {
 
     res.status(200).json(userData);
   } catch (error) {
-    console.log(error); // Log the error to the console for debugging purposes
+    console.log(error);
     res.status(500).json({ error: "Failed to create user" });
   }
 });
 
-// POST route to log in a user with a given username and password. It sets a session for the logged in user
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
@@ -54,7 +51,6 @@ router.post("/login", (req, res) => {
         return;
       }
       req.session.save(() => {
-        // Save the user's session data in the server-side session store
         req.session.user_id = userData.id;
         req.session.username = userData.username;
         req.session.profile_picture = userData.profile_picture;
@@ -69,21 +65,18 @@ router.post("/login", (req, res) => {
     });
 });
 
-// POST route to log out the currently logged in user by destroying their session
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
-    res.status(404).end(); // If the user is not logged in, send a 404 'Not Found' status code to the client
+    res.status(404).end();
   }
 });
 
-// PUT route to update a user's record in the database
 router.put("/:id", (req, res) => {
   User.update(req.body, {
-    // Call User.update() method passing two arguments: the req.body object with the new values and the where property specifying what user to update
     individualHooks: true,
     where: {
       id: req.params.id,
@@ -100,11 +93,10 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err); // If an error occurs during the update, send a 500 response
+      res.status(500).json(err);
     });
 });
 
-// DELETE route to delete a user for a specific ID
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
@@ -126,7 +118,6 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-// Upload profile picture and amend User database
 router.post("/upload", (req, res) => {
   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
     .then((userData) => {
