@@ -9,7 +9,7 @@ const signUpHandler = async (event) => {
     const gender = document.querySelector('#gender').value.trim();
     const location = document.querySelector('#location').value.trim();
     const password = document.querySelector('#password').value.trim();
-    const location = document.querySelector( '#location').value.trim();
+
 
     if(username && first_name && last_name && email && location && gender && password) {
 
