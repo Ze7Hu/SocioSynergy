@@ -52,20 +52,6 @@ h5 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.numberCircle {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    padding: 8px;
-
-    background: #fff;
-    border: 2px solid #666;
-    color: #666;
-    text-align: center;
-
-    /* font: 32px Arial, sans-serif; */
-}
-
 .profile-list {
     /* float: right; */
     font-size: 16px;
@@ -146,9 +132,12 @@ h5 {
   background-color: rgb(29, 155, 240);
 }
 
-.like-btn.clicked .fa-solid.fa-heart,
-.follow-btn.clicked .fa-solid.fa-star {
+.like-btn.clicked .fa-solid.fa-heart {
   color: red;
+}
+
+.follow-btn.clicked .fa-solid.fa-star {
+  color: gold;
 }
 .fa-arrow-left {
   padding: 10px;

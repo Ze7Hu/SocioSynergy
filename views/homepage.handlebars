@@ -34,17 +34,19 @@
                             </a>
                         </div>
                         <!-- Post actions -->
-                          <div class="post-actions">
-              {{#if post.logged_in}}
-                <button class="btn btn-primary like-btn"><i class="like-btn fa-solid fa-heart"></i> Like <div class="numberCircle">30</div></button>
-                <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="post/{{post.id}}" class="btn-link">Comment</a></button>
-                {{!-- <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button> --}}
-              {{/if}}
-            </div>
+                        <div class="post-actions">
+                          {{#if post.logged_in}}
+                            <button class="btn btn-primary like-btn" id="like-{{post.id}}"><i class="fa-solid fa-heart"></i> Like</button>
+                            <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="post/{{post.id}}" class="btn-link">Comment</a></button>
+                            {{!-- <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button> --}}
+                          {{/if}}
                         </div>
+                    </div>
                 </div>
                 {{/each}}
             </div>
         </div>
     </div>
 </div>
+
+<script src="/js/like.js"></script>
