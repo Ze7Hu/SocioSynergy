@@ -1,12 +1,10 @@
-// TODO:  Create new-post Handlebars template
-// Import Modules
 const router = require ('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require ('../models');
 const withAuth = require ('../utils/auth');
 
-// GET endpoint to render user's profile and all their posts
-router.get ('/', withAuth, (req, res) => { // withAuth to ensure user is logged in before having acces to this page
+
+router.get ('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -46,7 +44,7 @@ router.get ('/', withAuth, (req, res) => { // withAuth to ensure user is logged 
     });
 });
 
-// GET route to edit a post with a specific ID
+
 router.get ('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -83,7 +81,7 @@ router.get ('/edit/:id', withAuth, (req, res) => {
             return;
         }
         const post = data.get({ plain: true });
-        res.render('edit-post', { post, loggedIn: true }); // If post is found, render edit-post Hanldebars template
+        res.render('edit-post', { post, loggedIn: true }); 
     })
     .catch(err => {
         console.log(err);
@@ -91,7 +89,7 @@ router.get ('/edit/:id', withAuth, (req, res) => {
     });
 })
 
-// GET route to render the new post form
+
 router.get('/new', withAuth, (req, res) => {
     res.render('new-post'); 
 });

@@ -1,11 +1,9 @@
-// TODO: Create the following Handlebars templates: single-post, posts-comments
-// Import Modules
 const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 
-// GET request for homepage to retrive all posts from database
+
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -76,7 +74,6 @@ router.get("/profile", withAuth, (req, res) => {
     });
 });
 
-// GET route for login endpoint
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -85,7 +82,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// GET route for signup endpoint
+
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -94,7 +91,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-// GET request for specific post
+
 router.get("/post/:id", withAuth, (req, res) => {
   Post.findOne({
     where: {
@@ -133,7 +130,6 @@ router.get("/post/:id", withAuth, (req, res) => {
     });
 });
 
-// GET endpoint to retrieve from database a specific post as well as the post's comments and user information
 router.get("/posts-comments", (req, res) => {
   Post.findOne({
     where: {
