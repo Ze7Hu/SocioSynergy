@@ -23,16 +23,11 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    
+
     date_created: {
       type: DataTypes.DATE,
-      field: 'created_at'
+      field: "created_at",
     },
-    
-    // location:{
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // }, 
 
     user_id: {
       type: DataTypes.INTEGER,
