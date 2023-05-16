@@ -23,7 +23,6 @@ router.get("/", async (req, res) => {
         username: req.session.username,
       }
   });
-    console.log(newPosts)
     res.render("homepage", { 
       newPosts,
       logged_in: req.session.logged_in,
