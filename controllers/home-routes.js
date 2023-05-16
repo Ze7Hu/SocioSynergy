@@ -18,8 +18,16 @@ router.get("/", async (req, res) => {
       order: [["created_at", "DESC"]],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render("homepage", {
-      posts,
+    const newPosts = posts.map((post) => {
+      return {
+        ...post,
+        logged_in: req.session.logged_in,
+        username: req.session.username,
+      }
+  });
+    console.log(newPosts)
+    res.render("homepage", { 
+      newPosts,
       logged_in: req.session.logged_in,
       username: req.session.username,
     });
@@ -124,7 +132,6 @@ router.get("/post/:id", withAuth, (req, res) => {
         return;
       }
       const post = data.get({ plain: true });
-      console.log(post);
       res.render("single-post", { post, logged_in: req.session.logged_in });
     })
     .catch((err) => {

@@ -9,7 +9,7 @@
             </div>
             <!-- Post previews -->
             <div class="post-previews">
-                {{#each posts as |post|}}
+                {{#each newPosts as |post|}}
                 <div class="post-preview card mb-2">
                     <div class="card-body">
                         <div class="user-info">
@@ -35,14 +35,10 @@
                         </div>
                         <!-- Post actions -->
                           <div class="post-actions">
-              {{#if logged_in}}
-                <button class="btn btn-primary like-btn"><i class="fa-solid fa-heart"></i> Like</button>
+              {{#if post.logged_in}}
+                <button class="btn btn-primary like-btn"><i class="like-btn fa-solid fa-heart"></i> Like <div class="numberCircle">30</div></button>
                 <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="post/{{post.id}}" class="btn-link">Comment</a></button>
-                <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
-              {{else}}
-                <button class="btn btn-primary like-btn"><i class="fa-solid fa-heart"></i> Like</button>
-                <button class="btn btn-secondary comment-btn"><i class="fa-solid fa-comment"></i> <a href="post/{{post.id}}" class="btn-link">Comment</a></button>
-                <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
+                {{!-- <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button> --}}
               {{/if}}
             </div>
                         </div>

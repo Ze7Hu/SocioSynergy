@@ -19,10 +19,15 @@ router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
-    req.session.user_id = userData.id;
-    req.session.username = userData.username;
-    req.session.logged_in = true;
-    req.session.profile_picture = userData.profile_picture;
+    req.session.save(() => {
+        // Save the user's session data in the server-side session store
+        req.session.user_id = userData.id;
+        req.session.username = userData.username;
+        req.session.profile_picture = userData.profile_picture;
+        req.session.logged_in = true;
+
+        res.json({ user: userData, message: "You are now logged in" });
+      });
 
     res.status(200).json(userData);
   } catch (error) {
@@ -50,7 +55,7 @@ router.post("/login", (req, res) => {
       if (!validPassword) {
         res
           .status(400)
-          .json({ message: "Icorrect password. Please try again" });
+          .json({ message: "Incorrect password. Please try again" });
         return;
       }
       req.session.save(() => {
