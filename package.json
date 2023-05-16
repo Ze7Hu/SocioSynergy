@@ -21,7 +21,7 @@
     "express-fileupload": "^1.4.0",
     "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
-    "mysql2": "^3.2.4",
+    "mysql2": "^3.3.1",
     "sequelize": "^6.31.1"
   }
 }
