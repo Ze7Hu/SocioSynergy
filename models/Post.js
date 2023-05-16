@@ -29,10 +29,10 @@ Post.init(
       field: 'created_at'
     },
 
-    location:{
-      type: DataTypes.STRING,
-      allowNull: false
-    }, 
+    // location:{
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // }, 
 
     user_id: {
       type: DataTypes.INTEGER,
