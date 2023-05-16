@@ -42,13 +42,13 @@ User.init(
       },
     },
 
+    location: {
+      type: DataTypes.STRING,
+      
+    },
+
     gender: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    
-    location: {
-      type:DataTypes.STRING,
       allowNull: false
     },
 
@@ -64,7 +64,7 @@ User.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,
