@@ -280,7 +280,15 @@ background-color: #c2cdd8;
     border-radius: 50%;
   }
 
-
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
 @media (min-width: 992px) {
    .post-preview > a > .post-title {
         font-size: 2.25rem;
