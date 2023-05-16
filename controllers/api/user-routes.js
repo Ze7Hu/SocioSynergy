@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
 // POST route to create new user
 router.post('/', async (req, res) => {
     try {
-    const userData = await User.create(req.body);
-
-    req.session.user_id = userData.id;
-    req.session.username = userData.username;
-    req.session.logged_in = true;
-    req.session.profile_picture = userData.profile_picture;
-
-    res.status(200).json(userData);
+      const userData = await User.create(req.body);
+  
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.logged_in = true;
+      req.session.profile_picture = userData.profile_picture;
+  
+      res.status(200).json(userData);
     } catch (error) {
       console.log(error); // Log the error to the console for debugging purposes
       res.status(500).json({ error: 'Failed to create user' });
