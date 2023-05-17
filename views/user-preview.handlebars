@@ -14,7 +14,7 @@
                 <img src="/img/default_avatar.png" class="profile-picture me-2">
                 </a>
                 {{/if}}
-                <h5 class="mb-0">{{user.username}}</h5>
+                <h5 class="mb-0"> <i class="fa fa-sharp fa-solid fa-at"></i>  {{user.username}}</h5>
                 <div class="mx-auto">
                     <button class="btn btn-primary follow-btn"><i class="fa-solid fa-star"></i> Follow</button>
                     <button class="btn btn-secondary comment-btn" data-toggle="modal" data-target="#sendMsg"><i class="fa-solid fa-comment"></i>Send message</button>
@@ -23,11 +23,14 @@
 
             
             <div class="profile-info">
-                <h4>{{user.first_name}} {{user.last_name}}</h4>
-                <h4>{{user.gender}}</h4>
+                <p> {{user.first_name}} {{user.last_name}}</h4>
+                <p><i class="fa fa-solid fa-venus-mars"></i>  {{user.gender}}</p>
+                <p><i class="fa fa-light fa-location-dot"></i>  {{user.location}}</p>
+                <p><i class="fa fa-regular fa-envelope"></i> {{user.email}}</p>
+                
             </div> 
             <hr class="my-4">
-            <h2 class="pt-2 what-is-happening" align="center">See what {{user.username}} posted:</h2>
+            <h2 class="pt-2 what-is-happening" align="center">See what <span style="color: rgb(29, 155, 240, 0.6">{{user.username}}</span>  posted:</h2>
             <hr class="my-4">
                 {{#if user.posts}}
                     {{#each user.posts as |post|}}
