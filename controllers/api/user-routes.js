@@ -124,32 +124,35 @@ router.delete("/:id", (req, res) => {
 });
 
 router.post("/upload", (req, res) => {
+  
   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
     .then((userData) => {
       if (!userData) {
-        res.status.json({ message: "A user with this ID could not be found" });
+        res.status(400).json({ message: "A user with this ID could not be found" });
+
         return;
       }
 
       const { file } = req.files;
 
       try {
-        if (!file) return res.status(400);
+        if (!file) return res.status(400).json({ message: "File not found" });
         file.mv(
           path.join(__dirname, "../../public/img/profile/") +
             req.session.user_id +
-            ".png"
+            ".png",
+          (error) => {
+            if (error) {
+              console.log(error);
+              return res.status(500).json({ error: "Failed to upload file" });
+            }
+            res.redirect("/profile");
+          }
         );
       } catch (error) {
-        res.status(400).json(error);
-      }
-
-      res.redirect("/profile");
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json(error);
-    });
+        console.log(error);
+        res.status(500).json({ error: "Failed to upload file" });
+      });
 });
 
 module.exports = router;
