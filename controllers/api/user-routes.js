@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
 const { User, Post, Comment } = require("../../models");
+const fs = require("fs");
 
 router.get("/", (req, res) => {
   User.findAll({
@@ -135,9 +136,13 @@ router.post("/upload", (req, res) => {
       try {
         if (!file) return res.status(400).json({ message: "File not found" });
 
-        const filePath = path.join(__dirname, "../../public/img/profile/") +
-          req.session.user_id +
-          ".png";
+        const directoryPath = path.join(__dirname, "../../public/img/profile/");
+        const filePath = directoryPath + req.session.user_id + ".png";
+
+        // Create the directory if it doesn't exist
+        if (!fs.existsSync(directoryPath)) {
+          fs.mkdirSync(directoryPath, { recursive: true });
+        }
 
         file.mv(filePath, (error) => {
           if (error) {
