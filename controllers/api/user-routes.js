@@ -122,7 +122,6 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 router.post("/upload", (req, res) => {
   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
     .then((userData) => {
@@ -135,28 +134,66 @@ router.post("/upload", (req, res) => {
 
       try {
         if (!file) return res.status(400).json({ message: "File not found" });
-        file.mv(
-          path.join(__dirname, "../../public/img/profile/") +
-            req.session.user_id +
-            ".png",
-          (error) => {
-            if (error) {
-              console.log(error);
-              return res.status(500).json({ error: "Failed to upload file" });
-            }
-            res.redirect("/profile");
+
+        const filePath = path.join(__dirname, "../../public/img/profile/") +
+          req.session.user_id +
+          ".png";
+
+        file.mv(filePath, (error) => {
+          if (error) {
+            console.log(error);
+            return res.status(500).json({ error: "Failed to upload file", details: error.message });
           }
-        );
+          console.log("File uploaded successfully:", filePath);
+          res.redirect("/profile");
+        });
       } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "Failed to upload file" });
+        res.status(500).json({ error: "Failed to upload file", details: error.message });
       }
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json(error);
+      res.status(500).json({ error: "Database error", details: error.message });
     });
 });
 
-
 module.exports = router;
+
+// router.post("/upload", (req, res) => {
+//   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
+//     .then((userData) => {
+//       if (!userData[0]) {
+//         res.status(400).json({ message: "A user with this ID could not be found" });
+//         return;
+//       }
+
+//       const { file } = req.files;
+
+//       try {
+//         if (!file) return res.status(400).json({ message: "File not found" });
+//         file.mv(
+//           path.join(__dirname, "../../public/img/profile/") +
+//             req.session.user_id +
+//             ".png",
+//           (error) => {
+//             if (error) {
+//               console.log(error);
+//               return res.status(500).json({ error: "Failed to upload file" });
+//             }
+//             res.redirect("/profile");
+//           }
+//         );
+//       } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ error: "Failed to upload file" });
+//       }
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       res.status(500).json(error);
+//     });
+// });
+
+
+// module.exports = router;
