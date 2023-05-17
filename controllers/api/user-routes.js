@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
 const { User, Post, Comment } = require("../../models");
+const fs = require("fs");
 
 router.get("/", (req, res) => {
   User.findAll({
@@ -122,33 +123,43 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
 router.post("/upload", (req, res) => {
   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
     .then((userData) => {
-      if (!userData) {
-        res.status.json({ message: "A user with this ID could not be found" });
+      if (!userData[0]) {
+        res.status(400).json({ message: "A user with this ID could not be found" });
         return;
       }
 
       const { file } = req.files;
 
       try {
-        if (!file) return res.status(400);
-        file.mv(
-          path.join(__dirname, "../../public/img/profile/") +
-            req.session.user_id +
-            ".png"
-        );
-      } catch (error) {
-        res.status(400).json(error);
-      }
+        if (!file) return res.status(400).json({ message: "File not found" });
 
-      res.redirect("/profile");
+        const directoryPath = path.join(__dirname, "../../public/img/profile/");
+        const filePath = directoryPath + req.session.user_id + ".png";
+
+        // Create the directory if it doesn't exist
+        if (!fs.existsSync(directoryPath)) {
+          fs.mkdirSync(directoryPath, { recursive: true });
+        }
+
+        file.mv(filePath, (error) => {
+          if (error) {
+            console.log(error);
+            return res.status(500).json({ error: "Failed to upload file", details: error.message });
+          }
+          console.log("File uploaded successfully:", filePath);
+          res.redirect("/profile");
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Failed to upload file", details: error.message });
+      }
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json(error);
+      res.status(500).json({ error: "Database error", details: error.message });
     });
 });
 
