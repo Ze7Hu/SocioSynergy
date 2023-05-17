@@ -124,12 +124,10 @@ router.delete("/:id", (req, res) => {
 });
 
 router.post("/upload", (req, res) => {
-  
   User.update({ profile_picture: true }, { where: { id: req.session.user_id } })
     .then((userData) => {
-      if (!userData) {
+      if (!userData[0]) {
         res.status(400).json({ message: "A user with this ID could not be found" });
-
         return;
       }
 
@@ -152,7 +150,13 @@ router.post("/upload", (req, res) => {
       } catch (error) {
         console.log(error);
         res.status(500).json({ error: "Failed to upload file" });
-      });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
+
 
 module.exports = router;
