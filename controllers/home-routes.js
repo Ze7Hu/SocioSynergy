@@ -82,7 +82,7 @@ router.get("/profile", withAuth, (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect("/");
     return;
   }
@@ -91,7 +91,7 @@ router.get("/login", (req, res) => {
 
 
 router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect("/");
     return;
   }
@@ -166,7 +166,7 @@ router.get("/posts-comments", (req, res) => {
       }
       const post = data.get({ plain: true });
 
-      res.render("posts-comments", { post, loggedIn: req.session.loggedIn });
+      res.render("posts-comments", { post, logged_in: req.session.logged_in });
     })
     .catch((err) => {
       console.log(err);
