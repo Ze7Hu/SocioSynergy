@@ -34,14 +34,6 @@
             {{/if}}
             <h5 class="mb-0">{{username}}</h5>
         </div>
-            {{!-- <h2> {{user.username}}</h2>
-            <div class="profile-info">
-                <img src="/img/profile/default_avatar.png" alt="Profile Picture" class="profile-picture">
-                <h4> {{user.first_name}} {{user.last_name}}</h4>
-                <h4> {{user.email}}</h4>
-                <h4> {{user.gender}}</h4>
-            </div> --}}
-            {{!-- <hr class="my-4"> --}}
             <h2 class="pt-2 what-is-happening" align="center">What's happening, {{username}}?</h2>
             <div class=" new-post">
             <a href="/profile/new"><i class="bi bi-person me-2 fa-sharp fa-solid fa-plus"></i>New Post</a>
@@ -58,10 +50,6 @@
                             <h2 class="post-title">{{post/title}}</h2>
                             <h3 class="post-subtitle">{{post.content}}</h3>
                         </a>
-                        {{!-- <p class="post-meta">
-                            Posted by <a href="#!">Carmela</a> on {{format_date post.date}}
-                        </p> --}}
-                        <!-- Add comments functionality here -->
                     </div>
                     <hr class="my-4">
                 {{/each}}
