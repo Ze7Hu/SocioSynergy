@@ -52,14 +52,6 @@ User.init(
       allowNull: false
     },
 
-    follower_id: {
-      type:DataTypes.INTEGER,
-      references: { 
-        model: "user",
-        key: "id"
-      }
-    },
-
     profile_picture: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
