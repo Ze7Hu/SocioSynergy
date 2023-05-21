@@ -1,0 +1,42 @@
+[
+  {
+    "username": "Rider",
+    "first_name":"Tom",
+    "last_name": "Jones",
+    "email": "tommy@gmail.com",
+    "location": "London",
+    "gender": "Male",
+    "profile_picture": true,
+    "password": "Tommy123"
+  },
+  {
+    "username": "noE",
+    "first_name":"John",
+    "last_name": "Doe",
+    "email": "john_doe@gmail.com",
+    "location": "Derby",
+    "gender": "Male",
+    "profile_picture": false,
+    "password": "John123"
+  },
+  {
+    "username": "karen",
+    "first_name":"Karen",
+    "last_name": "Smith",
+    "email": "karen@gmail.com",
+    "location": "Birmingham",
+    "gender": "Female",
+    "profile_picture": true,
+    "password": "Karen123"
+  },
+  {
+    "username": "Jessica",
+    "first_name":"Jessica",
+    "last_name": "Jones",
+    "email": "jessica@gmail.com",
+    "location": "Manchester",
+    "gender": "Female",
+    "profile_picture": false,
+    "password": "Jessica123"
+  }
+]

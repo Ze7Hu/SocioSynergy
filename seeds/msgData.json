@@ -1,0 +1,26 @@
+[
+    {
+        "msg_content": "Hi, are you online?",
+        "recipient_id": 2,
+        "sender_id": 1,
+        "date_created": "2023-05-21 12:28:17"
+    },
+    {
+        "msg_content": "Hi, are you online?",
+        "recipient_id": 3,
+        "sender_id": 1,
+        "date_created": "2023-05-21 12:28:17"
+    },
+    {
+        "msg_content": "Hi, are you online?",
+        "recipient_id": 4,
+        "sender_id": 1,
+        "date_created": "2023-05-21 12:28:17"
+    },
+    {
+        "msg_content": "Hi, are you online?",
+        "recipient_id": 1,
+        "sender_id": 3,
+        "date_created": "2023-05-21 12:28:17"
+    }
+]

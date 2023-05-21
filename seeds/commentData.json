@@ -1,0 +1,26 @@
+[
+{
+    "text": "Its a beautiful day",
+    "user_id": 1,
+    "post_id": 4,
+    "date_created": "2023-05-21 12:28:17"
+},
+{
+    "text": "your hair is on point",
+    "user_id": 2,
+    "post_id": 2,
+    "date_created": "2023-05-21 12:28:17"
+},
+{
+    "text": "hi! where are you from?",
+    "user_id": 3,
+    "post_id": 3,
+    "date_created": "2023-05-21 12:28:17"
+},
+{
+    "text": "yes!",
+    "user_id": 4,
+    "post_id": 1,
+    "date_created": "2023-05-21 12:28:17"
+}
+]
