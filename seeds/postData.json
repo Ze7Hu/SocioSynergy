@@ -1,0 +1,26 @@
+[
+  {
+    "title": "aut tace...",
+    "content": "aut loquere meliora silentio",
+    "user_id": 1,
+    "date_created": "2023-05-20 12:28:17"
+  },
+  {
+    "title": "Dokad?",
+    "content": "dokad noca tupta jez?",
+    "user_id": 2,
+    "date_created": "2023-04-20 16:20:12"
+  },
+  {
+    "title": "hey, you there?",
+    "content": "let's talk!",
+    "user_id": 3,
+    "date_created": "2023-05-15 08:28:17"
+  },
+  {
+    "title": "Sun is up!",
+    "content": "Good morning!",
+    "user_id": 4,
+    "date_created": "2023-05-17 08:29:17"
+  }
+]
